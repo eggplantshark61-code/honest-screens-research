@@ -225,6 +225,17 @@
   .rev-date{color:var(--muted);font-size:.78rem;margin-top:2px}
   .rev-src{font-size:.66rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#1cc9ae;background:rgba(28,201,174,.12);padding:4px 9px;border-radius:6px;white-space:nowrap}
 
+  /* SENSITIVE-CONTENT LOCK */
+  .lock-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:44px 34px;max-width:420px;margin:0 auto;text-align:center}
+  .lock-icon{width:52px;height:52px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.5rem}
+  .lock-card h4{font-size:1.1rem;font-weight:800;margin-bottom:8px}
+  .lock-card p{color:var(--muted);font-size:.86rem;margin-bottom:22px}
+  .lock-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .lock-input{flex:1;min-width:180px;background:var(--bg2);border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:10px;font-size:.95rem;font-family:inherit}
+  .lock-input:focus{outline:none;border-color:var(--cyan)}
+  .lock-err{color:var(--red);font-size:.82rem;margin-top:14px;display:none}
+  .lock-err.show{display:block}
+
   /* COMMUNITY / DISCORD */
   .discord-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:38px;max-width:820px;margin:0 auto;position:relative;overflow:hidden}
   .discord-card::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(88,101,242,.14),transparent 60%);z-index:0}
@@ -419,8 +430,20 @@
       <h2>Portfolio &amp; research log</h2>
       <p class="sec-sub">A running, dated log of every trade, screen and position change — the same log that feeds the Discord server. New entries appear here automatically as they're posted; nothing below is edited after the fact.</p>
     </div>
-    <div class="updates-feed reveal" id="updatesFeed"></div>
-    <button class="cal-back" id="updShowBtn" onclick="showAllUpdates()">Show earlier updates &#8250;</button>
+    <div class="lock-card" id="updatesLock">
+      <div class="lock-icon">&#128274;</div>
+      <h4>The trade-by-trade log is password-protected</h4>
+      <p>This is limited to people I've shared access with. Enter the password to view it.</p>
+      <div class="lock-form">
+        <input type="password" class="lock-input" id="updatesPwInput" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')checkLock('updatesPwInput','updatesErr')">
+        <button class="btn btn-p" style="padding:12px 22px" onclick="checkLock('updatesPwInput','updatesErr')">Unlock</button>
+      </div>
+      <div class="lock-err" id="updatesErr">Incorrect password.</div>
+    </div>
+    <div id="updatesContent" style="display:none">
+      <div class="updates-feed" id="updatesFeed"></div>
+      <button class="cal-back" id="updShowBtn" onclick="showAllUpdates()">Show earlier updates &#8250;</button>
+    </div>
   </div>
 </section>
 
@@ -437,10 +460,22 @@
 
     <div style="margin-top:64px">
       <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:6px">Current core holdings</h3>
-      <p class="sec-sub" style="margin-bottom:30px">Equal-weight across five names: CRM, ON, ECHO and SKM (concentrated Jul 8, 2026, unchanged since) plus MLKN, added Aug 2, 2026 as the top pick from the Top Screen Picks review. Pulled from the tracked research log above — not a live brokerage feed, and not investment advice.</p>
-      <div class="pie-wrap reveal">
-        <div class="pie" id="pieChart"></div>
-        <div class="pie-legend" id="pieLegend"></div>
+      <div class="lock-card" id="holdingsLock" style="margin-top:24px">
+        <div class="lock-icon">&#128274;</div>
+        <h4>Current holdings are password-protected</h4>
+        <p>This is limited to people I've shared access with. Enter the password to view it.</p>
+        <div class="lock-form">
+          <input type="password" class="lock-input" id="holdingsPwInput" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')checkLock('holdingsPwInput','holdingsErr')">
+          <button class="btn btn-p" style="padding:12px 22px" onclick="checkLock('holdingsPwInput','holdingsErr')">Unlock</button>
+        </div>
+        <div class="lock-err" id="holdingsErr">Incorrect password.</div>
+      </div>
+      <div id="holdingsContent" style="display:none">
+        <p class="sec-sub" style="margin-bottom:30px">Equal-weight across five names: CRM, ON, ECHO and SKM (concentrated Jul 8, 2026, unchanged since) plus MLKN, added Aug 2, 2026 as the top pick from the Top Screen Picks review. Pulled from the tracked research log above — not a live brokerage feed, and not investment advice.</p>
+        <div class="pie-wrap">
+          <div class="pie" id="pieChart"></div>
+          <div class="pie-legend" id="pieLegend"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -546,7 +581,10 @@
       <div class="kicker">Contact</div>
       <h2>Get in touch</h2>
       <p style="color:var(--muted);max-width:520px;margin:0 auto 28px">Questions about the research or the methodology? Reach out — happy to talk process, not tips.</p>
-      <a href="mailto:eggplantshark61@gmail.com" class="btn btn-p">Email me</a>
+      <div class="cta" style="justify-content:center">
+        <a href="mailto:eggplantshark61@gmail.com" class="btn btn-p">Email me</a>
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=eggplantshark61@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-s">Open in Gmail</a>
+      </div>
       <p style="color:var(--muted);font-size:.85rem;margin-top:18px">eggplantshark61@gmail.com</p>
     </div>
   </div>
@@ -861,6 +899,45 @@
     if(el) el.textContent=(days>=0?days:0)+'';
   }
   renderDaysActive();
+
+  // ---- password gate for Updates log & Current holdings ----
+  var SENSITIVE_HASH='aa05fc69e203da92c20e2bc5843f771b3de8b88294e27fe9247450c421ba3c35';
+  var UNLOCK_KEY='hsr_unlocked_v1';
+  function sha256Hex(str){
+    var enc=new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256',enc).then(function(buf){
+      return Array.prototype.map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2)}).join('');
+    });
+  }
+  function revealGate(contentId,lockId){
+    var c=document.getElementById(contentId),l=document.getElementById(lockId);
+    if(c) c.style.display='';
+    if(l) l.style.display='none';
+  }
+  function applyUnlockState(){
+    var unlocked=false;
+    try{ unlocked=localStorage.getItem(UNLOCK_KEY)==='1'; }catch(e){}
+    if(unlocked){
+      revealGate('updatesContent','updatesLock');
+      revealGate('holdingsContent','holdingsLock');
+    }
+  }
+  function checkLock(inputId,errId){
+    var input=document.getElementById(inputId);
+    var val=input.value;
+    sha256Hex(val).then(function(hash){
+      if(hash===SENSITIVE_HASH){
+        try{ localStorage.setItem(UNLOCK_KEY,'1'); }catch(e){}
+        document.getElementById(errId).classList.remove('show');
+        applyUnlockState();
+      }else{
+        document.getElementById(errId).classList.add('show');
+        input.value='';
+        input.focus();
+      }
+    });
+  }
+  applyUnlockState();
 
   // reveal on scroll
   var io=new IntersectionObserver(function(es){
