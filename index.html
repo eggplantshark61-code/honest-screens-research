@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nathan Jimenez — Independent Equity Research, Stock Screens & Analyst Price Targets</title>
+<meta name="description" content="Independent equity research by Nathan Jimenez: data-driven stock screens paired with technical and Elliott Wave analysis, and analyst price targets confirmed across multiple sources. Educational market research — not investment advice." />
+<meta name="author" content="Nathan Jimenez" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0a0e1a" />
+<!-- Replace the domain below with your real URL once hosted -->
+<link rel="canonical" href="https://your-domain.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Nathan Jimenez — Equity Research" />
+<meta property="og:title" content="Nathan Jimenez — Independent Equity Research & Analyst Price Targets" />
+<meta property="og:description" content="Data-driven stock screens, technical and Elliott Wave analysis, and analyst price targets confirmed across multiple sources. Educational research, not advice." />
+<meta property="og:url" content="https://your-domain.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Nathan Jimenez — Independent Equity Research" />
+<meta name="twitter:description" content="Data-driven stock screens with multi-source-confirmed analyst price targets and technical analysis. Educational research." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237c5cff'/%3E%3Cpath d='M7 21 L14 13 L19 17 L26 9' stroke='%23b6f34a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Nathan Jimenez — Equity Research",
+      "url": "https://your-domain.com/",
+      "description": "Independent, data-driven equity research: stock screens, technical and Elliott Wave analysis, and multi-source-confirmed analyst price targets."
+    },
+    {
+      "@type": "Person",
+      "name": "Nathan Jimenez",
+      "jobTitle": "Independent Equity Researcher",
+      "url": "https://your-domain.com/",
+      "email": "mailto:eggplantshark61@gmail.com",
+      "sameAs": ["https://discord.gg/QT3BQbgW9B"],
+      "knowsAbout": ["Equity research", "Stock screening", "Technical analysis", "Elliott Wave analysis", "Analyst price targets"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What is an analyst price target?",
+         "acceptedAnswer": {"@type": "Answer", "text": "An analyst price target is a research firm's estimate of where a stock could trade over a set horizon, usually 12 months. It is an opinion, not a guarantee, and estimates frequently prove wrong. On this site, each target is cross-checked across several independent sources and averaged."}},
+        {"@type": "Question", "name": "How does a stock screen work?",
+         "acceptedAnswer": {"@type": "Answer", "text": "A stock screen filters the market using explicit, repeatable rules — such as analyst rating, company size, liquidity, target upside, and trend relative to moving averages — to surface a shortlist of candidates for deeper review."}},
+        {"@type": "Question", "name": "Is this website investment advice?",
+         "acceptedAnswer": {"@type": "Answer", "text": "No. Everything here is for information and education only. It is not personalized advice or a recommendation, and the author is not a registered investment adviser. Always do your own research and consider a licensed professional."}},
+        {"@type": "Question", "name": "What is Elliott Wave analysis?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Elliott Wave is a technical framework that interprets price movement as repeating impulsive and corrective wave patterns. It is inherently subjective, so any count here is presented as one interpretation, not a forecast."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#0f1424; --card:#141a2e; --line:#232b45;
+    --text:#e8ecf6; --muted:#98a2c0; --violet:#7c5cff; --cyan:#22d3ee;
+    --lime:#b6f34a; --gold:#ffcf5c; --red:#ff6b6b; --green:#41d693;
+    --grad:linear-gradient(120deg,#7c5cff 0%,#22d3ee 55%,#b6f34a 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(10,14,26,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-weight:800;font-size:1.15rem;letter-spacing:.3px}
+  .brand span{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--grad);margin-right:9px;transform:translateY(1px)}
+  .navlinks{display:flex;gap:30px;font-weight:600;font-size:.95rem}
+  .navlinks a{color:var(--muted);transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  .menu-btn{display:none;background:none;border:0;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+  /* HERO */
+  header{position:relative;padding:130px 0 110px;overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;z-index:0}
+  .b1{width:520px;height:520px;background:#7c5cff;top:-160px;right:-120px}
+  .b2{width:420px;height:420px;background:#22d3ee;bottom:-180px;left:-120px;opacity:.4}
+  .b3{width:300px;height:300px;background:#b6f34a;top:120px;left:40%;opacity:.18}
+  header .wrap{position:relative;z-index:1}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;font-weight:700;
+    letter-spacing:2px;text-transform:uppercase;color:var(--cyan);
+    border:1px solid var(--line);padding:7px 15px;border-radius:100px;background:rgba(255,255,255,.02)}
+  .eyebrow b{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.03;font-weight:800;margin:24px 0 18px;letter-spacing:-1.5px}
+  .lead{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--muted);max-width:640px;margin-bottom:34px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{padding:14px 28px;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;border:0;transition:transform .15s,box-shadow .2s;display:inline-block}
+  .btn-p{background:var(--grad);color:#08101f;box-shadow:0 10px 30px -8px rgba(124,92,255,.6)}
+  .btn-p:hover{transform:translateY(-2px)}
+  .btn-s{background:transparent;color:var(--text);border:1px solid var(--line)}
+  .btn-s:hover{border-color:var(--cyan)}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .stat h3{font-size:1.9rem;font-weight:800;line-height:1}
+  .stat p{font-size:.85rem;color:var(--muted);margin-top:8px}
+
+  section{padding:88px 0;position:relative}
+  .kicker{color:var(--cyan);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.78rem}
+  h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;margin:10px 0 18px}
+  .sec-sub{color:var(--muted);max-width:620px;margin-bottom:44px}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .about-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:6px;position:relative}
+  .about-inner{background:linear-gradient(160deg,#182036,#0e1424);border-radius:18px;padding:34px}
+  .avatar{width:76px;height:76px;border-radius:18px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.8rem;color:#08101f;margin-bottom:20px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .chip{font-size:.82rem;font-weight:600;color:var(--muted);border:1px solid var(--line);padding:7px 13px;border-radius:100px}
+  .edit{font-size:.72rem;color:var(--violet);border:1px dashed var(--violet);border-radius:6px;padding:2px 7px;opacity:.8}
+
+  /* RESEARCH */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;cursor:pointer;transition:transform .2s,border-color .2s;position:relative;overflow:hidden}
+  .rcard::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .25s;z-index:0}
+  .rcard:hover{transform:translateY(-5px);border-color:transparent}
+  .rcard:hover::before{opacity:.07}
+  .rcard>*{position:relative;z-index:1}
+  .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--lime);background:rgba(182,243,74,.1);padding:5px 11px;border-radius:7px}
+  .rcard h3{font-size:1.35rem;font-weight:800;margin:16px 0 10px}
+  .rcard p{color:var(--muted);font-size:.95rem}
+  .tickers{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .tk{font-weight:700;font-size:.82rem;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg2)}
+  .readmore{margin-top:20px;font-weight:700;color:var(--cyan);font-size:.9rem}
+
+  /* METHOD */
+  .method{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .m{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+  .m .n{font-size:1.6rem;font-weight:800;color:var(--violet)}
+  .m h4{font-size:1.1rem;margin:12px 0 8px}
+  .m p{color:var(--muted);font-size:.9rem}
+
+  /* DISCLAIMER */
+  .disc{background:linear-gradient(160deg,#1a1327,#0e1424);border:1px solid #3a2b52;border-radius:20px;padding:30px 34px}
+  .disc h4{color:var(--gold);font-size:1.05rem;margin-bottom:10px}
+  .disc p{color:#c7b8d8;font-size:.9rem}
+
+  /* CONTACT */
+  .contact{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:60px 30px}
+  .contact h2{margin-bottom:14px}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.85rem;text-align:center}
+
+  /* MODAL */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(4,7,14,.78);backdrop-filter:blur(6px)}
+  .modal.open{display:flex}
+  .modal-box{background:var(--bg2);border:1px solid var(--line);border-radius:22px;max-width:760px;width:100%;max-height:86vh;overflow-y:auto;padding:38px}
+  .modal-box h3{font-size:1.7rem;font-weight:800;margin-bottom:6px}
+  .modal-box .msub{color:var(--muted);margin-bottom:22px}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.9rem}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+  th{color:var(--cyan);font-size:.75rem;letter-spacing:1px;text-transform:uppercase}
+  td .up{color:var(--green);font-weight:700}
+  .close{float:right;background:none;border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:10px;font-size:1.1rem;cursor:pointer}
+  .mnote{font-size:.82rem;color:var(--muted);border-left:3px solid var(--gold);padding:6px 0 6px 14px;margin-top:16px}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s,transform .6s}
+  .reveal.in{opacity:1;transform:none}
+
+  /* CALENDAR */
+  .cal-head{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:18px}
+  .cal-title{font-size:1.3rem;font-weight:800;min-width:200px;text-align:center}
+  .cal-nav{background:var(--card);border:1px solid var(--line);color:var(--text);width:40px;height:40px;border-radius:10px;font-size:1.3rem;line-height:1;cursor:pointer;transition:border-color .2s}
+  .cal-nav:hover{border-color:var(--cyan)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;max-width:720px;margin:0 auto}
+  .cal-dow{text-align:center;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:4px 0}
+  .cal-cell{aspect-ratio:1/1;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--card);color:var(--muted);font-weight:600;font-size:.95rem;transition:transform .15s,box-shadow .2s}
+  .cal-cell.empty{border:0;background:transparent}
+  .cal-cell.today{outline:2px solid var(--violet);outline-offset:-2px}
+  .cal-cell.res{cursor:pointer;color:var(--text);background:linear-gradient(160deg,#1b2440,#141a2e);border-color:transparent;box-shadow:0 0 0 1px rgba(124,92,255,.45)}
+  .cal-cell.res:hover{transform:translateY(-3px);box-shadow:0 9px 22px -8px rgba(124,92,255,.6)}
+  .cal-cell.res .cnt{margin-top:5px;font-size:.6rem;font-weight:800;color:#08101f;background:var(--grad);padding:1px 7px;border-radius:100px}
+  .cal-legend{text-align:center;color:var(--muted);font-size:.82rem;margin-top:18px}
+  .dot-res{display:inline-block;width:11px;height:11px;border-radius:3px;background:var(--grad);transform:translateY(2px);margin-right:5px}
+  .cal-back{background:none;border:1px solid var(--line);color:var(--text);padding:8px 16px;border-radius:10px;font-weight:600;cursor:pointer;margin-bottom:18px}
+  .cal-back:hover{border-color:var(--cyan)}
+  .day-title{font-size:1.4rem;font-weight:800;margin-bottom:20px}
+
+  /* UPDATES FEED */
+  .updates-feed{max-width:760px;margin:0 auto}
+  .upd-item{display:grid;grid-template-columns:118px 1fr;gap:26px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .upd-item:first-child{padding-top:0}
+  .upd-item:last-of-type{border-bottom:none}
+  .upd-date{color:var(--cyan);font-weight:700;font-size:.82rem;padding-top:3px;letter-spacing:.2px}
+  .upd-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--violet);background:rgba(124,92,255,.12);padding:3px 9px;border-radius:6px;margin-bottom:8px}
+  .upd-body h4{font-size:1.05rem;font-weight:800;margin-bottom:6px}
+  .upd-body p{color:var(--muted);font-size:.92rem}
+  .upd-more{display:none}
+  #updShowBtn{display:block;margin:30px auto 0}
+
+  /* COMMUNITY / DISCORD */
+  .discord-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:38px;max-width:820px;margin:0 auto;position:relative;overflow:hidden}
+  .discord-card::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(88,101,242,.14),transparent 60%);z-index:0}
+  .discord-card>*{position:relative;z-index:1}
+  .discord-top{display:flex;align-items:center;gap:18px;margin-bottom:18px}
+  .discord-mark{width:52px;height:52px;min-width:52px;border-radius:14px;background:#5865F2;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.4rem}
+  .discord-card h3{font-size:1.3rem;font-weight:800}
+  .discord-card .chips{margin-top:18px}
+  .discord-btn{display:inline-block;margin-top:26px;background:#5865F2;color:#fff;box-shadow:0 10px 30px -8px rgba(88,101,242,.55)}
+  .discord-btn:hover{filter:brightness(1.08)}
+
+  @media(max-width:820px){
+    .navlinks{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:var(--bg2);padding:20px 24px;border-bottom:1px solid var(--line);gap:18px}
+    .navlinks.show{display:flex}
+    .menu-btn{display:block}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .about{grid-template-columns:1fr}
+    .grid{grid-template-columns:1fr}
+    .method{grid-template-columns:1fr}
+    .upd-item{grid-template-columns:1fr;gap:6px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span></span>Nathan Jimenez</div>
+    <div class="navlinks" id="nav">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#updates">Updates</a>
+      <a href="#method">Method</a>
+      <a href="#learn">Learn</a>
+      <a href="#community">Community</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('show')">☰</button>
+  </div>
+</nav>
+
+<header>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap">
+    <div class="eyebrow"><b></b> Independent Equity Research</div>
+    <h1>Data-driven <span class="grad-text">market research</span>,<br>explained clearly.</h1>
+    <p class="lead">I build quantitative stock screens and pair them with technical and Elliott Wave analysis — with every price target confirmed across multiple independent sources. Educational research, not advice.</p>
+    <div class="cta">
+      <a href="#research" class="btn btn-p">View Research</a>
+      <a href="#about" class="btn btn-s">About Me</a>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><h3 class="grad-text">3-source</h3><p>Every price target cross-checked &amp; averaged</p></div>
+      <div class="stat"><h3 class="grad-text">Multi-factor</h3><p>Screens across value, momentum &amp; quality</p></div>
+      <div class="stat"><h3 class="grad-text">TA + EW</h3><p>Technical and Elliott Wave chart analysis</p></div>
+      <div class="stat"><h3 class="grad-text">Transparent</h3><p>Methodology and sources on every piece</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="kicker">About</div>
+      <h2>Research first, hype never.</h2>
+      <p class="sec-sub" style="margin-bottom:20px">I'm an independent markets researcher focused on turning raw data into clear, honest analysis. My work starts with a repeatable screen, layers in technical structure and analyst expectations, and always ends with the caveats — because good research shows its work.</p>
+      <p style="color:var(--muted)">Everything here is for information and education. I'm not a registered investment adviser, and nothing on this site is a recommendation or a promise of returns. <span class="edit">edit this bio</span></p>
+      <div class="chips">
+        <span class="chip">Equity Screening</span>
+        <span class="chip">Technical Analysis</span>
+        <span class="chip">Elliott Wave</span>
+        <span class="chip">Fundamental Review</span>
+        <span class="chip">Report Writing</span>
+      </div>
+    </div>
+    <div class="about-card reveal">
+      <div class="about-inner">
+        <div class="avatar">NJ</div>
+        <h3 style="font-size:1.3rem;font-weight:800">How I approach a name</h3>
+        <p style="color:var(--muted);margin-top:12px">Start with the screen. Confirm the numbers across independent sources. Read the chart. Write the risks down first. If the story only works when you ignore the downside, it isn't a story worth publishing.</p>
+        <div class="chips" style="margin-top:24px">
+          <span class="chip">Finviz</span><span class="chip">StockAnalysis</span>
+          <span class="chip">TipRanks</span><span class="chip">S&amp;P Global</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Research</div>
+      <h2>Featured reports</h2>
+      <p class="sec-sub">Browse research by date. Pick a highlighted day on the calendar to open that day's screens and reports on their own view — so this page stays short.</p>
+    </div>
+
+    <!-- CALENDAR VIEW -->
+    <div id="calView">
+      <div class="cal-head">
+        <button class="cal-nav" onclick="calMove(-1)" aria-label="Previous month">&#8249;</button>
+        <div class="cal-title" id="calTitle">August 2026</div>
+        <button class="cal-nav" onclick="calMove(1)" aria-label="Next month">&#8250;</button>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-legend"><span class="dot-res"></span> highlighted = research published that day · click to open</div>
+    </div>
+
+    <!-- DAY VIEW -->
+    <div id="dayView" style="display:none">
+      <button class="cal-back" onclick="backToCal()">&#8249; Back to calendar</button>
+      <h3 class="day-title" id="dayTitle"></h3>
+      <div class="grid" id="dayCards"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section id="updates">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Updates</div>
+      <h2>Portfolio &amp; research log</h2>
+      <p class="sec-sub">A running, dated log of every trade, screen and position change — the same log that feeds the Discord server. New entries appear here automatically as they're posted; nothing below is edited after the fact.</p>
+    </div>
+    <div class="updates-feed reveal" id="updatesFeed"></div>
+    <button class="cal-back" id="updShowBtn" onclick="showAllUpdates()">Show earlier updates &#8250;</button>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="method">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Methodology</div>
+      <h2>How the research is built</h2>
+      <p class="sec-sub">Every piece follows the same repeatable process.</p>
+    </div>
+    <div class="method">
+      <div class="m reveal"><div class="n">01</div><h4>Screen</h4><p>Filter the market on transparent rules — analyst rating, size, liquidity, target upside, and trend versus the 50- and 200-day moving averages.</p></div>
+      <div class="m reveal"><div class="n">02</div><h4>Confirm &amp; average</h4><p>Pull each price target from three independent aggregators, compare them, and average — so no single feed drives the number.</p></div>
+      <div class="m reveal"><div class="n">03</div><h4>Chart &amp; caveat</h4><p>Read support/resistance and Elliott structure, then write the risks plainly. Interpretations are one reading, never a guarantee.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section id="learn" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Learn</div>
+      <h2>Research concepts, in plain English</h2>
+      <p class="sec-sub">Short, evergreen explainers for the ideas behind the reports — useful whether you follow the research or are just learning the vocabulary.</p>
+    </div>
+    <div class="method">
+      <div class="m reveal">
+        <h4>Analyst price target</h4>
+        <p>A research firm's estimate of where a stock might trade over roughly a year. It's an opinion, not a promise — targets are often wrong. Every target here is cross-checked across several independent sources and averaged, so no single feed drives the number.</p>
+      </div>
+      <div class="m reveal">
+        <h4>Stock screening</h4>
+        <p>Filtering the whole market with explicit, repeatable rules — analyst rating, size, liquidity, target upside, trend versus the 50- and 200-day moving averages — to surface a shortlist worth a closer look. A screen is a starting point, never a conclusion.</p>
+      </div>
+      <div class="m reveal">
+        <h4>Technical &amp; Elliott Wave</h4>
+        <p>Technical analysis reads price structure — support, resistance, moving averages, momentum. Elliott Wave interprets price as repeating impulsive and corrective patterns. Both are subjective lenses, so any read here is one interpretation, not a forecast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">FAQ</div>
+      <h2>Frequently asked questions</h2>
+      <p class="sec-sub">Quick answers to the questions I get most about the research and how to read it.</p>
+    </div>
+    <div style="display:grid;gap:16px">
+      <div class="m reveal"><h4>What is an analyst price target?</h4><p>It's a research firm's estimate of where a stock could trade over a set horizon, usually 12 months. It is an opinion, not a guarantee, and estimates frequently prove wrong. On this site each target is cross-checked across several independent sources and averaged.</p></div>
+      <div class="m reveal"><h4>How does a stock screen work?</h4><p>A screen filters the market using explicit, repeatable rules — analyst rating, company size, liquidity, target upside, and trend relative to moving averages — to surface a shortlist of candidates for deeper review.</p></div>
+      <div class="m reveal"><h4>Is this website investment advice?</h4><p>No. Everything here is for information and education only. It is not personalized advice or a recommendation, and I am not a registered investment adviser. Always do your own research and consider consulting a licensed professional.</p></div>
+      <div class="m reveal"><h4>What is Elliott Wave analysis?</h4><p>A technical framework that interprets price movement as repeating impulsive and corrective wave patterns. It is inherently subjective, so any count here is presented as one interpretation, not a forecast.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section style="padding-top:0">
+  <div class="wrap reveal">
+    <div class="disc">
+      <h4>Important disclosure</h4>
+      <p>This website is for informational and educational purposes only. It is not investment advice, a recommendation, or a solicitation to buy or sell any security, and it is not personalized to your situation. I am not a registered investment adviser or broker-dealer. Analyst price targets are third-party opinions that are frequently wrong and are not guarantees; past performance does not predict future results. Many names discussed are small, volatile, or pre-revenue companies whose value can fall suddenly and substantially — including to zero. Always do your own research and consider consulting a licensed financial professional before making any investment decision.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 34px">
+      <div class="kicker" style="justify-content:center">Community</div>
+      <h2>Join the research server on Discord</h2>
+      <p class="sec-sub">Free to join. New screens, position updates and backtest reports post there first — react to opt into just the categories you want, unreact any time.</p>
+    </div>
+    <div class="discord-card reveal">
+      <div class="discord-top">
+        <div class="discord-mark">HS</div>
+        <div>
+          <h3>Honest Screens — Research Log</h3>
+          <p style="color:var(--muted);font-size:.9rem">Live screens, trade-by-trade position updates, backtest reports, and the same dated update log shown above.</p>
+        </div>
+      </div>
+      <p style="color:var(--muted)">Notification roles let you follow just what you care about: react 🔔 for new screens, 📊 for position updates, or 📈 for backtest reports — remove the reaction any time to stop.</p>
+      <div class="chips">
+        <span class="chip">#value-quality</span><span class="chip">#momentum-leaders</span><span class="chip">#position-changes</span><span class="chip">#buys</span><span class="chip">#sells</span><span class="chip">#watchlist</span>
+      </div>
+      <a href="https://discord.gg/QT3BQbgW9B" target="_blank" rel="noopener noreferrer" class="btn discord-btn">Join the Discord →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <div class="contact">
+      <div class="kicker">Contact</div>
+      <h2>Get in touch</h2>
+      <p style="color:var(--muted);max-width:520px;margin:0 auto 28px">Questions about the research or the methodology? Reach out — happy to talk process, not tips.</p>
+      <a href="mailto:eggplantshark61@gmail.com" class="btn btn-p">Email me</a>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:18px">eggplantshark61@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="yr"></span> Nathan Jimenez · Independent Equity Research · For informational purposes only — not investment advice.
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  var reports={
+    r1:{
+      title:"Screen Picks — High Analyst Upside",
+      sub:"August 2026 · quantitative screen with target confirmation and chart analysis",
+      body:`<p style="color:var(--muted)">Screened for stocks combining <b>high analyst price-target upside</b> with a <b>constructive technical trend</b>: analyst rating Buy-or-better, mid-cap or larger, US-listed, average volume above 500K, a consensus target at least 50% above price, and price trading above both the 50- and 200-day moving averages. Each consensus target was cross-checked across Finviz, StockAnalysis / S&P Global and TipRanks, then averaged.</p>
+      <table>
+        <tr><th>Ticker</th><th>Price</th><th>Avg target</th><th>Upside</th><th>Consensus</th></tr>
+        <tr><td><b>PCVX</b> Vaxcyte</td><td>$54.08</td><td>$109.00</td><td class="up">+101.6%</td><td>Strong Buy</td></tr>
+        <tr><td><b>ORKA</b> Oruka</td><td>$96.51</td><td>$148.74</td><td class="up">+54.1%</td><td>Strong Buy</td></tr>
+        <tr><td><b>DYN</b> Dyne</td><td>$25.18</td><td>$39.71</td><td class="up">+57.7%</td><td>Strong Buy</td></tr>
+        <tr><td><b>IDYA</b> Ideaya</td><td>$35.50</td><td>$53.88</td><td class="up">+51.8%</td><td>Strong Buy</td></tr>
+      </table>
+      <p class="mnote">Five of these are pre-revenue clinical-stage biotech; the large target gaps reflect binary trial and regulatory catalysts, so downside on a disappointing readout is as large as the upside. Figures as of Aug 1, 2026.</p>`
+    },
+    r2:{
+      title:"Top Screen Picks — Value &amp; Breakouts",
+      sub:"Cross-sector screen · technical + Elliott Wave · analyst targets",
+      body:`<p style="color:var(--muted)">A cross-sector set surfaced on valuation and momentum, each reviewed with technical structure, an Elliott Wave count, and the prevailing analyst price target. Upside shown is analyst target versus the price at the time of the report.</p>
+      <table>
+        <tr><th>Ticker</th><th>Price</th><th>Target</th><th>Upside</th><th>Setup</th></tr>
+        <tr><td><b>CSTM</b> Constellium</td><td>$27.78</td><td>$37.40</td><td class="up">+34.6%</td><td>Wedge / reversal</td></tr>
+        <tr><td><b>PANL</b> Pangaea</td><td>$7.61</td><td>$10.85</td><td class="up">+42.6%</td><td>Range breakout</td></tr>
+        <tr><td><b>CYD</b> China Yuchai</td><td>$47.16</td><td>$67.45</td><td class="up">+43.0%</td><td>Wave-4 pullback</td></tr>
+        <tr><td><b>MLKN</b> MillerKnoll</td><td>$22.52</td><td>$35.00</td><td class="up">+55.4%</td><td>New-high breakout</td></tr>
+      </table>
+      <p class="mnote">Technical and Elliott Wave readings are interpretive, not forecasts. Targets are third-party analyst estimates and move with the market.</p>`
+    },
+    v:{
+      title:"Value &amp; Quality Screen",
+      sub:"Stockopedia · sorted by Value Rank · Aug 2, 2026",
+      body:`<p style="color:var(--muted)">The cheapest, financially strongest names from the composite screen — filtered on <b>Piotroski F-Score ≥ 8, Value Rank ≥ 70, Momentum Rank ≥ 70, ≥ 2 brokers, and a broker target ~20%+ above price</b> (26 qualifiers), then sorted by <b>Value Rank</b>. Ranks are Stockopedia StockRank™ factors (0–100); F is the Piotroski quality score (0–9).</p>
+      <table>
+        <tr><th>Stock</th><th>SR</th><th>Value</th><th>Mom</th><th>F</th><th>Upside*</th></tr>
+        <tr><td><b>DEC</b> Diversified Energy</td><td>92</td><td>98</td><td>83</td><td>8</td><td class="up">~35%</td></tr>
+        <tr><td><b>MRE</b> Martinrea Intl</td><td>99</td><td>96</td><td>92</td><td>8</td><td class="up">~23%</td></tr>
+        <tr><td><b>DLX</b> Deluxe</td><td>98</td><td>95</td><td>73</td><td>8</td><td class="up">~21%</td></tr>
+        <tr><td><b>ADEN</b> Adentra</td><td>99</td><td>94</td><td>90</td><td>8</td><td class="up">~28%</td></tr>
+        <tr><td><b>OTEX</b> Open Text</td><td>95</td><td>90</td><td>76</td><td>8</td><td class="up">~34%</td></tr>
+        <tr><td><b>IMG</b> Iamgold</td><td>98</td><td>90</td><td>79</td><td>9</td><td class="up">~41%</td></tr>
+        <tr><td><b>LAS.A</b> Lassonde</td><td>99</td><td>89</td><td>91</td><td>9</td><td class="up">~21%</td></tr>
+        <tr><td><b>PANL</b> Pangaea Logistics</td><td>97</td><td>88</td><td>71</td><td>9</td><td class="up">~30%</td></tr>
+      </table>
+      <p class="mnote">SR = overall StockRank™; Value/Mom ranks 0–100; F = Piotroski F-Score 0–9. Stockopedia data as of Aug 2, 2026. *Upside = consensus broker target vs. price, per Stockopedia. Several names are TSX (Canada) listings. A screen is a research starting point, not a recommendation.</p>`
+    },
+    mo:{
+      title:"Momentum Leaders Screen",
+      sub:"Stockopedia · sorted by Momentum Rank · Aug 2, 2026",
+      body:`<p style="color:var(--muted)">Strongest price &amp; earnings momentum among stocks that are still cheap and high-quality — same base filter (F-Score ≥ 8, Value ≥ 70, Momentum ≥ 70, ≥ 2 brokers, ~20%+ target upside), sorted by <b>Momentum Rank</b>.</p>
+      <table>
+        <tr><th>Stock</th><th>SR</th><th>Value</th><th>Mom</th><th>F</th><th>Upside*</th></tr>
+        <tr><td><b>ALTO</b> Alto Ingredients</td><td>98</td><td>87</td><td>97</td><td>9</td><td class="up">~47%</td></tr>
+        <tr><td><b>DAR</b> Darling Ingredients</td><td>99</td><td>74</td><td>96</td><td>8</td><td class="up">~24%</td></tr>
+        <tr><td><b>ERO</b> Ero Copper</td><td>97</td><td>72</td><td>94</td><td>9</td><td class="up">~23%</td></tr>
+        <tr><td><b>MRE</b> Martinrea Intl</td><td>99</td><td>96</td><td>92</td><td>8</td><td class="up">~23%</td></tr>
+        <tr><td><b>LAS.A</b> Lassonde</td><td>99</td><td>89</td><td>91</td><td>9</td><td class="up">~21%</td></tr>
+        <tr><td><b>MFI</b> Maple Leaf Foods</td><td>96</td><td>74</td><td>91</td><td>9</td><td class="up">~23%</td></tr>
+        <tr><td><b>APEI</b> American Public Ed.</td><td>98</td><td>70</td><td>90</td><td>8</td><td class="up">~23%</td></tr>
+        <tr><td><b>ABX</b> Barrick Mining</td><td>97</td><td>73</td><td>89</td><td>9</td><td class="up">~36%</td></tr>
+      </table>
+      <p class="mnote">SR = overall StockRank™; Value/Mom ranks 0–100; F = Piotroski F-Score 0–9. Stockopedia data as of Aug 2, 2026. *Upside = consensus broker target vs. price, per Stockopedia. Several names are TSX (Canada) listings. A screen is a research starting point, not a recommendation.</p>`
+    },
+    sr:{
+      title:"Top StockRank™ — Super Stocks",
+      sub:"Stockopedia · sorted by overall StockRank™ · Aug 2, 2026",
+      body:`<p style="color:var(--muted)">The highest all-round names — strong <b>value, momentum and quality together</b> — from the same base filter, sorted by overall <b>StockRank™</b>. Each also carries a broker price target above the current price.</p>
+      <table>
+        <tr><th>Stock</th><th>SR</th><th>Value</th><th>Mom</th><th>F</th><th>Upside*</th></tr>
+        <tr><td><b>MRE</b> Martinrea Intl</td><td>99</td><td>96</td><td>92</td><td>8</td><td class="up">~23%</td></tr>
+        <tr><td><b>ADEN</b> Adentra</td><td>99</td><td>94</td><td>90</td><td>8</td><td class="up">~28%</td></tr>
+        <tr><td><b>LAS.A</b> Lassonde</td><td>99</td><td>89</td><td>91</td><td>9</td><td class="up">~21%</td></tr>
+        <tr><td><b>CSTM</b> Constellium</td><td>99</td><td>88</td><td>89</td><td>9</td><td class="up">~27%</td></tr>
+        <tr><td><b>MLKN</b> MillerKnoll</td><td>99</td><td>86</td><td>81</td><td>9</td><td class="up">~36%</td></tr>
+        <tr><td><b>DAR</b> Darling Ingredients</td><td>99</td><td>74</td><td>96</td><td>8</td><td class="up">~24%</td></tr>
+        <tr><td><b>DLX</b> Deluxe</td><td>98</td><td>95</td><td>73</td><td>8</td><td class="up">~21%</td></tr>
+        <tr><td><b>CYD</b> China Yuchai</td><td>98</td><td>86</td><td>86</td><td>8</td><td class="up">~30%</td></tr>
+      </table>
+      <p class="mnote">SR = overall StockRank™; Value/Mom ranks 0–100; F = Piotroski F-Score 0–9. Stockopedia data as of Aug 2, 2026. *Upside = consensus broker target vs. price, per Stockopedia. Several names are TSX (Canada) listings. A screen is a research starting point, not a recommendation.</p>`
+    },
+    q:{
+      title:"Quality Leaders — Piotroski F‑Score 9",
+      sub:"Stockopedia · maximum financial-strength score · Aug 2, 2026",
+      body:`<p style="color:var(--muted)">The best-data names from the composite screen: every stock here posts the <b>maximum Piotroski F-Score of 9</b> (top financial strength), a high overall StockRank™, and — for the ones I'd weight most — the deepest analyst coverage. "Brokers" shows how many analysts contribute to the target, i.e. how well-covered the data is. Sorted by StockRank.</p>
+      <table>
+        <tr><th>Stock</th><th>SR</th><th>Value</th><th>Mom</th><th>F</th><th>Upside*</th><th>Brokers</th></tr>
+        <tr><td><b>LAS.A</b> Lassonde</td><td>99</td><td>89</td><td>91</td><td>9</td><td class="up">~21%</td><td>4</td></tr>
+        <tr><td><b>CSTM</b> Constellium</td><td>99</td><td>88</td><td>89</td><td>9</td><td class="up">~27%</td><td>5</td></tr>
+        <tr><td><b>MLKN</b> MillerKnoll</td><td>99</td><td>86</td><td>81</td><td>9</td><td class="up">~36%</td><td>4</td></tr>
+        <tr><td><b>IMG</b> Iamgold</td><td>98</td><td>90</td><td>79</td><td>9</td><td class="up">~41%</td><td>10</td></tr>
+        <tr><td><b>ALTO</b> Alto Ingredients</td><td>98</td><td>87</td><td>97</td><td>9</td><td class="up">~47%</td><td>2</td></tr>
+        <tr><td><b>ABX</b> Barrick Mining</td><td>97</td><td>73</td><td>89</td><td>9</td><td class="up">~36%</td><td>16</td></tr>
+        <tr><td><b>ERO</b> Ero Copper</td><td>97</td><td>72</td><td>94</td><td>9</td><td class="up">~23%</td><td>9</td></tr>
+        <tr><td><b>PANL</b> Pangaea Logistics</td><td>97</td><td>88</td><td>71</td><td>9</td><td class="up">~30%</td><td>3</td></tr>
+        <tr><td><b>MFI</b> Maple Leaf Foods</td><td>96</td><td>74</td><td>91</td><td>9</td><td class="up">~23%</td><td>9</td></tr>
+      </table>
+      <p class="mnote">Best coverage (most brokers): ABX (16), IMG (10), ERO &amp; MFI (9). SR = overall StockRank™; F = Piotroski F-Score (0–9). Stockopedia data as of Aug 2, 2026. *Upside = consensus broker target vs. price. Several names are TSX (Canada) listings. A screen is a research starting point, not a recommendation.</p>`
+    },
+    us:{
+      title:"US High‑Conviction Screen",
+      sub:"Stockopedia · US‑listed only · Aug 2, 2026",
+      body:`<p style="color:var(--muted)">The <b>US‑listed</b> names from the composite screen (Piotroski ≥ 8, Value ≥ 70, Momentum ≥ 70, ≥ 2 brokers, broker target ~20%+ above price). US listings tend to carry deeper analyst coverage, so the target data is cleaner than for the smaller foreign names. Sorted by StockRank™.</p>
+      <table>
+        <tr><th>Stock</th><th>SR</th><th>Value</th><th>Mom</th><th>F</th><th>Upside*</th><th>Brokers</th></tr>
+        <tr><td><b>CSTM</b> Constellium</td><td>99</td><td>88</td><td>89</td><td>9</td><td class="up">~27%</td><td>5</td></tr>
+        <tr><td><b>MLKN</b> MillerKnoll</td><td>99</td><td>86</td><td>81</td><td>9</td><td class="up">~36%</td><td>4</td></tr>
+        <tr><td><b>DAR</b> Darling Ingredients</td><td>99</td><td>74</td><td>96</td><td>8</td><td class="up">~24%</td><td>11</td></tr>
+        <tr><td><b>ALTO</b> Alto Ingredients</td><td>98</td><td>87</td><td>97</td><td>9</td><td class="up">~47%</td><td>2</td></tr>
+        <tr><td><b>DLX</b> Deluxe</td><td>98</td><td>95</td><td>73</td><td>8</td><td class="up">~21%</td><td>3</td></tr>
+        <tr><td><b>CYD</b> China Yuchai</td><td>98</td><td>86</td><td>86</td><td>8</td><td class="up">~30%</td><td>3</td></tr>
+        <tr><td><b>APEI</b> American Public Ed.</td><td>98</td><td>70</td><td>90</td><td>8</td><td class="up">~23%</td><td>8</td></tr>
+        <tr><td><b>PANL</b> Pangaea Logistics</td><td>97</td><td>88</td><td>71</td><td>9</td><td class="up">~30%</td><td>3</td></tr>
+        <tr><td><b>DEC</b> Diversified Energy</td><td>92</td><td>98</td><td>83</td><td>8</td><td class="up">~35%</td><td>4</td></tr>
+      </table>
+      <p class="mnote">US-listed only. Best-covered: DAR (11 brokers), APEI (8). SR/Value/Mom = StockRank™ factors (0–100); F = Piotroski F-Score (0–9). Stockopedia data as of Aug 2, 2026. *Upside = consensus broker target vs. price. A screen is a research starting point, not a recommendation.</p>`
+    }
+  };
+
+  function openM(id){
+    var r=reports[id];
+    document.getElementById('modalBox').innerHTML=
+      '<button class="close" onclick="closeM()">✕</button>'+
+      '<h3>'+r.title+'</h3><div class="msub">'+r.sub+'</div>'+r.body;
+    document.getElementById('modal').classList.add('open');
+  }
+  function closeM(){document.getElementById('modal').classList.remove('open')}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM()});
+
+  // ---- research calendar ----
+  var cards={
+    v:{d:'2026-08-02',tag:'Stockopedia · Value',title:'Value &amp; Quality Screen',blurb:'Cheapest, financially strongest names — high Value Rank &amp; Piotroski, with broker upside.',tk:['DEC','MRE','DLX','ADEN','OTEX','+3']},
+    mo:{d:'2026-08-02',tag:'Stockopedia · Momentum',title:'Momentum Leaders Screen',blurb:'Strongest price &amp; earnings momentum among cheap, high-quality names.',tk:['ALTO','DAR','ERO','MRE','MFI','+3']},
+    sr:{d:'2026-08-02',tag:'Stockopedia · Composite',title:'Top StockRank™ — Super Stocks',blurb:'Highest all-round StockRank names — value, momentum &amp; quality together.',tk:['MRE','ADEN','LAS.A','CSTM','MLKN','+3']},
+    q:{d:'2026-08-02',tag:'Stockopedia · Quality',title:'Quality Leaders — Piotroski F-Score 9',blurb:'Every name posts the maximum Piotroski financial-strength score of 9.',tk:['LAS.A','CSTM','MLKN','IMG','ABX','+4']},
+    us:{d:'2026-08-02',tag:'Stockopedia · US-only',title:'US High-Conviction Screen',blurb:'US-listed names with deeper analyst coverage and cleaner data.',tk:['CSTM','MLKN','DAR','ALTO','APEI','+4']},
+    r1:{d:'2026-08-01',tag:'Screen · Analyst upside',title:'Screen Picks — High Analyst Upside',blurb:'50%+ analyst target upside + confirmed uptrend; technical &amp; Elliott Wave charts.',tk:['PCVX','ORKA','DYN','IDYA']},
+    r2:{d:'2026-08-01',tag:'Screen · Value + Momentum',title:'Top Screen Picks — Value &amp; Breakouts',blurb:'Cross-sector value/momentum set with technical &amp; Elliott Wave analysis.',tk:['MLKN','PANL','CYD','CSTM']}
+  };
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var TODAY='2026-08-02';
+  var byDate={};
+  Object.keys(cards).forEach(function(id){var d=cards[id].d;(byDate[d]=byDate[d]||[]).push(id);});
+  var calY=2026,calM=7;
+  function pad(n){return (n<10?'0':'')+n;}
+  function fmtDate(ds){var p=ds.split('-');return MONTHS[+p[1]-1]+' '+(+p[2])+', '+p[0];}
+  function renderCalendar(){
+    document.getElementById('calTitle').textContent=MONTHS[calM]+' '+calY;
+    var g=document.getElementById('calGrid');g.innerHTML='';
+    DOW.forEach(function(d){var e=document.createElement('div');e.className='cal-dow';e.textContent=d;g.appendChild(e);});
+    var first=new Date(calY,calM,1).getDay();
+    var days=new Date(calY,calM+1,0).getDate();
+    for(var i=0;i<first;i++){var e=document.createElement('div');e.className='cal-cell empty';g.appendChild(e);}
+    for(var day=1;day<=days;day++){
+      var ds=calY+'-'+pad(calM+1)+'-'+pad(day);
+      var cell=document.createElement('div');
+      cell.className='cal-cell'+(byDate[ds]?' res':'')+(ds===TODAY?' today':'');
+      var num=document.createElement('div');num.textContent=day;cell.appendChild(num);
+      if(byDate[ds]){var c=document.createElement('div');c.className='cnt';c.textContent=byDate[ds].length;cell.appendChild(c);
+        cell.onclick=(function(x){return function(){showDay(x);};})(ds);}
+      g.appendChild(cell);
+    }
+  }
+  function calMove(delta){calM+=delta;if(calM<0){calM=11;calY--;}if(calM>11){calM=0;calY++;}renderCalendar();}
+  function showDay(ds){
+    document.getElementById('calView').style.display='none';
+    document.getElementById('dayView').style.display='block';
+    document.getElementById('dayTitle').textContent='Research · '+fmtDate(ds);
+    var wrap=document.getElementById('dayCards');wrap.innerHTML='';
+    byDate[ds].forEach(function(id){
+      var c=cards[id];var el=document.createElement('div');el.className='rcard';
+      el.onclick=(function(x){return function(){openM(x);};})(id);
+      el.innerHTML='<span class="tag">'+fmtDate(ds)+' · '+c.tag+'</span><h3>'+c.title+'</h3><p>'+c.blurb+'</p>'+
+        '<div class="tickers">'+c.tk.map(function(t){return '<span class="tk">'+t+'</span>';}).join('')+'</div>'+
+        '<div class="readmore">Read summary →</div>';
+      wrap.appendChild(el);
+    });
+    window.scrollTo({top:document.getElementById('research').offsetTop-60,behavior:'smooth'});
+  }
+  function backToCal(){document.getElementById('dayView').style.display='none';document.getElementById('calView').style.display='block';}
+  renderCalendar();
+
+  // ---- updates feed ----
+  // Newest first. To add a new entry, unshift a new object onto this array —
+  // it renders automatically, no other HTML changes needed.
+  var updates=[
+    {date:'2026-08-01',tag:'Screen run',title:'Fresh technical read on the composite screen',body:'Ran the Piotroski ≥8 / Value ≥70 / Momentum ≥70 / broker target screen on Stockopedia, filtered to US-exchange names, then reviewed technicals on Finviz for the top 10. Strongest setups: MLKN broke above multi-month resistance to new highs; PANL broke out of a long sideways range; CYD in a broader uptrend pulling back to test support; CSTM in a descending wedge after a strong prior uptrend. Tracking purposes only.'},
+    {date:'2026-07-24',tag:'Trade',title:'Covered the MU short',body:'Bought to cover the MU short. Total tracked gain up to 45.96%.'},
+    {date:'2026-07-15',tag:'Trade',title:'Closed out the mid-July basket',body:'Sold ESCA, AU, OPRA, MHH, BZ, MT and OPRX. Total tracked gain up to 44.96%.'},
+    {date:'2026-07-12',tag:'Trade',title:'Added five new names',body:'Bought ESCA, AU, OPRA, MHH and BZ.'},
+    {date:'2026-07-10',tag:'Trade',title:'Added to SKM/ON, new positions in MT &amp; OPRX',body:'Bought more SKM and ON, purchased MT and OPRX, and sold LEAT.'},
+    {date:'2026-07-08',tag:'Trade',title:'Trimmed down to four core names',body:'Sold CYLM, DAKT, NATR, BWMX, IMPP, MOV, CCSI, GLBS, DLX and BRC — concentrating the book in CRM, ON, ECHO and SKM. Recent strength in CRM plus the trims added ~2% gain; total tracked gain 40%. Also flagged MU as a short candidate.'},
+    {date:'2026-07-04',tag:'Trade',title:'Sold SNDK',body:'Closed the SNDK position.'},
+    {date:'2026-06-30',tag:'Update',title:'Adding four Graham/Piotroski picks',body:'The names bought at the end of June are roughly break-even so far (still good-quality businesses); overall tracked ROI holds at 38%. Adding four new picks that clear a Benjamin Graham score above 5 and a Piotroski score above 7: DAKT, NATR, BWMX and IMPP — each with 30%+ theoretical upside; DAKT and NATR are the more conservative pair. Plan: add to ON on any dip below $80, with support around $70.'},
+    {date:'2026-06-21',tag:'Trade',title:'Added six new names',body:'Bought MOV, CCSI, GLBS, DLX, BRC and CLYM.'},
+    {date:'2026-06-02',tag:'Trade',title:'Added to SKM &amp; CRM',body:'Bought SKM and added more CRM.'},
+    {date:'2026-06-01',tag:'Trade',title:'Bought SNDK, added to CRM',body:'Bought SNDK and more CRM. Theoretical cash pile $687.11, cost basis $120.00, valuation $907.11 — total tracked gain 38.58%, beating the S&amp;P 500 by 28.10%.'},
+    {date:'2026-05-25',tag:'Trade',title:'Rotated SOXS into LEAT',body:'Bought LEAT and sold SOXS.'},
+    {date:'2026-05-18',tag:'Trade',title:'Trimmed the consolidated list, added SATS',body:'Sold INTC, DELL, SQQQ, SANM, CSTM, IAG, UROY, MU and NWPX. Used the proceeds to add to CRM, buy SATS, and either short SOXX or buy SOXS.'},
+    {date:'2026-05-08',tag:'Update',title:'Consolidated three portfolios into one Top 20',body:'Sold every Top 20 position except ON and SANM and folded in the winners from the bonus list and the watchlist into a single consolidated portfolio: ON, SANM, INTC, MU, CSTM, NEM, WTM, AROC, NHC, NWPX, UROY, plus confirmed new adds ARKVX, CRM, DELL and IAG. New watchlist: SLDE, NRT, VFC, SBSW, VFF, SE, ESEA, USO, LITE, KVUE, SPHR. Theoretical cash pile $547.11, cost basis $336.10, valuation $613 — total tracked gain 38.58%, beating the S&amp;P 500 by 28.10%.'},
+    {date:'2026-04-29',tag:'Trade',title:'Covered CRWV, trimmed ON',body:'Bought to cover the CRWV short for an 8.38% gain, kept the proceeds as cash, and sold half the ON position — waiting for a pullback into the $80–90 area to add back.'},
+    {date:'2026-04-23',tag:'Edit',title:'AEHR short underperforming',body:'The AEHR short wasn\'t working, so more was added at equal weight; the stock looked to be forming a head-and-shoulders top and was flagged as a momentum trap. Tracked return on the position moved from -17% to +7%. From this point, portfolio updates show two AEHR entries.'},
+    {date:'2026-04-17',tag:'Trade',title:'Sold FOLD, opened two new shorts',body:'Sold FOLD and replaced it with a short position in CRWV; also opened a short in AEHR funded by the proceeds from the removed EWTX position, and sold the remaining AMDL. Theoretical cash pile $447.35, cost basis $376.10, average gain $71.25 — total tracked gain 20%, beating the S&amp;P 500 by 13.7%.'},
+    {date:'2026-04-16',tag:'Trade',title:'Sold SIF to fund CSTM',body:'Sold SIF and used the proceeds to add to CSTM.'},
+    {date:'2026-04-15',tag:'Trade',title:'Trimmed AMDL &amp; PLTZ, added ON',body:'Sold half the AMDL and PLTZ positions for a 50% gain and used the proceeds to add to ON (buy up to $80). Total tracked gain of the main portfolio: 12.34%.'}
+  ];
+  var UPD_INITIAL=6;
+  function fmtUpdDate(ds){var p=ds.split('-');return MONTHS[+p[1]-1]+' '+(+p[2])+', '+p[0];}
+  function renderUpdates(){
+    var sorted=updates.slice().sort(function(a,b){return a.date<b.date?1:-1;});
+    var wrap=document.getElementById('updatesFeed');wrap.innerHTML='';
+    sorted.forEach(function(u,i){
+      var el=document.createElement('div');
+      el.className='upd-item'+(i>=UPD_INITIAL?' upd-more':'');
+      el.innerHTML='<div class="upd-date">'+fmtUpdDate(u.date)+'</div>'+
+        '<div class="upd-body"><span class="upd-tag">'+u.tag+'</span><h4>'+u.title+'</h4><p>'+u.body+'</p></div>';
+      wrap.appendChild(el);
+    });
+    var btn=document.getElementById('updShowBtn');
+    if(sorted.length<=UPD_INITIAL)btn.style.display='none';
+  }
+  function showAllUpdates(){
+    document.querySelectorAll('.upd-more').forEach(function(el){el.style.display='grid';});
+    document.getElementById('updShowBtn').style.display='none';
+  }
+  renderUpdates();
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // close mobile menu on link click
+  document.querySelectorAll('#nav a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('nav').classList.remove('show')})
+  });
+</script>
+</body>
+</html>
