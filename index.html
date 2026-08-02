@@ -362,7 +362,7 @@
 
     <div style="margin-top:64px">
       <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:6px">Current core holdings</h3>
-      <p class="sec-sub" style="margin-bottom:30px">Equal-weight across the four current core names, last confirmed Jul 8, 2026 and unchanged through the most recent update (Jul 24, 2026). Pulled from the tracked research log above — not a live brokerage feed, and not investment advice.</p>
+      <p class="sec-sub" style="margin-bottom:30px">Equal-weight across five names: CRM, ON, ECHO and SKM (concentrated Jul 8, 2026, unchanged since) plus MLKN, added Aug 2, 2026 as the top pick from the Top Screen Picks review. Pulled from the tracked research log above — not a live brokerage feed, and not investment advice.</p>
       <div class="pie-wrap reveal">
         <div class="pie" id="pieChart"></div>
         <div class="pie-legend" id="pieLegend"></div>
@@ -680,6 +680,7 @@
   // Newest first. To add a new entry, unshift a new object onto this array —
   // it renders automatically, no other HTML changes needed.
   var updates=[
+    {date:'2026-08-02',tag:'Trade',title:'Added MLKN from the Top Screen Picks review',body:'Of the four names in the Aug 1 Top Screen Picks report (MLKN, PANL, CYD, CSTM), MLKN was the clearest buy: highest analyst upside of the group (+55%), a StockRank of 99, and — unlike the other three, which are mid-pullback or still attempting a breakout — MLKN has already confirmed its breakout to new highs with an Elliott Wave impulse in progress. Added at equal weight alongside CRM, ON, ECHO and SKM.'},
     {date:'2026-08-01',tag:'Screen run',title:'Fresh technical read on the composite screen',body:'Ran the Piotroski ≥8 / Value ≥70 / Momentum ≥70 / broker target screen on Stockopedia, filtered to US-exchange names, then reviewed technicals on Finviz for the top 10. Strongest setups: MLKN broke above multi-month resistance to new highs; PANL broke out of a long sideways range; CYD in a broader uptrend pulling back to test support; CSTM in a descending wedge after a strong prior uptrend. Tracking purposes only.'},
     {date:'2026-07-24',tag:'Trade',title:'Covered the MU short',body:'Bought to cover the MU short. Total tracked gain up to 45.96%.'},
     {date:'2026-07-15',tag:'Trade',title:'Closed out the mid-July basket',body:'Sold ESCA, AU, OPRA, MHH, BZ, MT and OPRX. Total tracked gain up to 44.96%.'},
@@ -759,10 +760,11 @@
   // Equal-weight current core holdings. Update this array when the concentration changes —
   // the pie slices and legend percentages recompute automatically.
   var portfolio=[
-    {ticker:'CRM',weight:25,color:'#7c5cff'},
-    {ticker:'ON',weight:25,color:'#22d3ee'},
-    {ticker:'ECHO',weight:25,color:'#b6f34a'},
-    {ticker:'SKM',weight:25,color:'#ffcf5c'}
+    {ticker:'CRM',weight:20,color:'#7c5cff'},
+    {ticker:'ON',weight:20,color:'#22d3ee'},
+    {ticker:'ECHO',weight:20,color:'#b6f34a'},
+    {ticker:'SKM',weight:20,color:'#ffcf5c'},
+    {ticker:'MLKN',weight:20,color:'#ff6b6b'}
   ];
   function renderPortfolio(){
     var cum=0;
