@@ -148,7 +148,7 @@
   .contact{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:60px 30px}
   .contact h2{margin-bottom:14px}
 
-  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.85rem;text-align:center}
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.85rem;text-align:center}.last-updated{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:.8rem;color:var(--muted);background:rgba(255,255,255,.02)}.lu-dot{width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:lu-pulse 2s infinite}@keyframes lu-pulse{0%{box-shadow:0 0 0 0 rgba(61,220,132,.55)}70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
 
   /* MODAL */
   .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(4,7,14,.78);backdrop-filter:blur(6px)}
@@ -591,7 +591,7 @@
 
 <footer>
   <div class="wrap">
-    © <span id="yr"></span> Nathan Jimenez · Independent Equity Research · For informational purposes only — not investment advice.
+    <div class="last-updated"><span class="lu-dot"></span>Last updated: <b id="lastUpdated">Aug 2, 2026 · 2:56 PM EDT</b></div><div>© <span id="yr"></span> Nathan Jimenez · Independent Equity Research · For informational purposes only — not investment advice.</div>
   </div>
 </footer>
 
@@ -715,7 +715,7 @@
         <tr><td><b>PANL</b> Pangaea Logistics</td><td>97</td><td>88</td><td>71</td><td>9</td><td class="up">~30%</td><td>3</td></tr>
         <tr><td><b>DEC</b> Diversified Energy</td><td>92</td><td>98</td><td>83</td><td>8</td><td class="up">~35%</td><td>4</td></tr>
       </table>
-      <p class="mnote">US-listed only. Best-covered: DAR (11 brokers), APEI (8). SR/Value/Mom = StockRank™ factors (0–100); F = Piotroski F-Score (0–9). Stockopedia data as of Aug 2, 2026. *Upside = consensus broker target vs. price. A screen is a research starting point, not a recommendation.</p>`
+      <p class="mnote">US-listed only. Best-covered: DAR (11 brokers), APEI (8). SR/Value/Mom = StockRank™ factors (0–100); F = Piotroski F-Score (0–9). Stockopedia data as of Aug 2, 2026. *Upside = consensus broker target vs. price. A screen is a research starting point, not a recommendation.</p>`},rs:{title:"Research Screen — Quality &amp; Value, Clean-Accounting Filter",sub:"Stockopedia · US-listed · sorted by StockRank™ · Aug 2, 2026",body:`<p style="color:var(--muted)">The newest addition to the screen lineup: same US-listed, Piotroski-quality, high-Value-Rank base, plus an added <b>Beneish M-Score</b> filter (&lt; -1.78) to screen out names with red flags for aggressive or manipulated accounting. Rules (all AND): Country = US, Piotroski F-Score &gt; 7, Beneish M-Score &lt; -1.78, Value Rank &gt; 80. 87 stocks qualified; sorted by StockRank™.</p><table><tr><th>Stock</th><th>SR</th><th>Value</th><th>F</th><th>M-Score</th></tr><tr><td><b>DINO</b> HF Sinclair</td><td>100</td><td>92</td><td>9</td><td>-2.63</td></tr><tr><td><b>PBF</b> PBF Energy</td><td>99</td><td>87</td><td>9</td><td>-2.23</td></tr><tr><td><b>IMPP</b> Imperial Petroleum</td><td>99</td><td>98</td><td>8</td><td>-3.07</td></tr><tr><td><b>HCSG</b> Healthcare Services</td><td>99</td><td>83</td><td>9</td><td>-2.88</td></tr><tr><td><b>CCSI</b> Consensus Cloud Solutions</td><td>99</td><td>81</td><td>8</td><td>-2.83</td></tr><tr><td><b>FLXS</b> Flexsteel Industries</td><td>99</td><td>83</td><td>8</td><td>-2.76</td></tr><tr><td><b>RSRV</b> Reserve Petroleum Co</td><td>99</td><td>90</td><td>8</td><td>-2.57</td></tr><tr><td><b>M</b> Macy's</td><td>99</td><td>95</td><td>8</td><td>-2.52</td></tr></table><p class="mnote">SR = overall StockRank™; Value = Value Rank (0–100); F = Piotroski F-Score (0–9); M-Score = Beneish M-Score (more negative = lower accounting-manipulation risk; below -1.78 is the standard "clean" threshold). 87 US-listed names passed this screen; top 8 by StockRank shown. Stockopedia data as of Aug 2, 2026. A screen is a research starting point, not a recommendation.</p>`
     }
   };
 
@@ -736,7 +736,7 @@
     sr:{d:'2026-08-02',tag:'Stockopedia · Composite',title:'Top StockRank™ — Super Stocks',blurb:'Highest all-round StockRank names — value, momentum &amp; quality together.',tk:['MRE','ADEN','LAS.A','CSTM','MLKN','+3']},
     q:{d:'2026-08-02',tag:'Stockopedia · Quality',title:'Quality Leaders — Piotroski F-Score 9',blurb:'Every name posts the maximum Piotroski financial-strength score of 9.',tk:['LAS.A','CSTM','MLKN','IMG','ABX','+4']},
     us:{d:'2026-08-02',tag:'Stockopedia · US-only',title:'US High-Conviction Screen',blurb:'US-listed names with deeper analyst coverage and cleaner data.',tk:['CSTM','MLKN','DAR','ALTO','APEI','+4']},
-    r1:{d:'2026-08-01',tag:'Screen · Analyst upside',title:'Screen Picks — High Analyst Upside',blurb:'50%+ analyst target upside + confirmed uptrend; technical &amp; Elliott Wave charts.',tk:['PCVX','ORKA','DYN','IDYA']},
+    r1:{d:'2026-08-01',tag:'Screen · Analyst upside',title:'Screen Picks — High Analyst Upside',blurb:'50%+ analyst target upside + confirmed uptrend; technical &amp; Elliott Wave charts.',tk:['PCVX','ORKA','DYN','IDYA']},rs:{d:'2026-08-02',tag:'Stockopedia · Quality-Value',title:'Research Screen — Quality &amp; Value (87 results)',blurb:'Same quality-value base plus a clean-accounting (Beneish M-Score) filter — US names only.',tk:['DINO','PBF','IMPP','HCSG','CCSI','+3']},
     r2:{d:'2026-08-01',tag:'Screen · Value + Momentum',title:'Top Screen Picks — Value &amp; Breakouts',blurb:'Cross-sector value/momentum set with technical &amp; Elliott Wave analysis.',tk:['MLKN','PANL','CYD','CSTM']}
   };
   var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
