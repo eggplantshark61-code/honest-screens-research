@@ -8,13 +8,12 @@
 <meta name="author" content="Nathan Jimenez" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0a0e1a" />
-<!-- Replace the domain below with your real URL once hosted -->
-<link rel="canonical" href="https://your-domain.com/" />
+<link rel="canonical" href="https://honest-screens-research.netlify.app/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Nathan Jimenez — Equity Research" />
 <meta property="og:title" content="Nathan Jimenez — Independent Equity Research & Analyst Price Targets" />
 <meta property="og:description" content="Data-driven stock screens, technical and Elliott Wave analysis, and analyst price targets confirmed across multiple sources. Educational research, not advice." />
-<meta property="og:url" content="https://your-domain.com/" />
+<meta property="og:url" content="https://honest-screens-research.netlify.app/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Nathan Jimenez — Independent Equity Research" />
 <meta name="twitter:description" content="Data-driven stock screens with multi-source-confirmed analyst price targets and technical analysis. Educational research." />
@@ -26,14 +25,14 @@
     {
       "@type": "WebSite",
       "name": "Nathan Jimenez — Equity Research",
-      "url": "https://your-domain.com/",
+      "url": "https://honest-screens-research.netlify.app/",
       "description": "Independent, data-driven equity research: stock screens, technical and Elliott Wave analysis, and multi-source-confirmed analyst price targets."
     },
     {
       "@type": "Person",
       "name": "Nathan Jimenez",
       "jobTitle": "Independent Equity Researcher",
-      "url": "https://your-domain.com/",
+      "url": "https://honest-screens-research.netlify.app/",
       "email": "mailto:eggplantshark61@gmail.com",
       "sameAs": ["https://discord.gg/QT3BQbgW9B"],
       "knowsAbout": ["Equity research", "Stock screening", "Technical analysis", "Elliott Wave analysis", "Analyst price targets"]
@@ -199,6 +198,21 @@
   .upd-more{display:none}
   #updShowBtn{display:block;margin:30px auto 0}
 
+  /* PERFORMANCE STATS */
+  .pstats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+
+  /* LIVE PORTFOLIO PIE CHART */
+  .pie-wrap{display:flex;align-items:center;gap:44px;flex-wrap:wrap;justify-content:center}
+  .pie{width:220px;height:220px;min-width:220px;border-radius:50%;box-shadow:0 0 0 8px var(--card),0 20px 50px -20px rgba(124,92,255,.5)}
+  .pie-legend{display:flex;flex-direction:column;gap:14px}
+  .pie-legend .row{display:flex;align-items:center;gap:12px;font-weight:700}
+  .pie-legend .sw{width:16px;height:16px;border-radius:5px;flex:none}
+  .pie-legend .pct{margin-left:auto;color:var(--muted);font-weight:600}
+
+  /* VISITOR COUNTER */
+  .visit-counter{margin-top:14px;opacity:.85}
+  .visit-counter img{vertical-align:middle;border-radius:4px}
+
   /* COMMUNITY / DISCORD */
   .discord-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:38px;max-width:820px;margin:0 auto;position:relative;overflow:hidden}
   .discord-card::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(88,101,242,.14),transparent 60%);z-index:0}
@@ -218,6 +232,8 @@
     .about{grid-template-columns:1fr}
     .grid{grid-template-columns:1fr}
     .method{grid-template-columns:1fr}
+    .pstats{grid-template-columns:1fr}
+    .pie-wrap{flex-direction:column;text-align:center}
     .upd-item{grid-template-columns:1fr;gap:6px}
   }
 </style>
@@ -231,6 +247,7 @@
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#updates">Updates</a>
+      <a href="#stats-section">Stats</a>
       <a href="#method">Method</a>
       <a href="#learn">Learn</a>
       <a href="#community">Community</a>
@@ -329,6 +346,28 @@
     </div>
     <div class="updates-feed reveal" id="updatesFeed"></div>
     <button class="cal-back" id="updShowBtn" onclick="showAllUpdates()">Show earlier updates &#8250;</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats-section" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Performance</div>
+      <h2>Track record &amp; live portfolio</h2>
+      <p class="sec-sub">Numbers below are computed straight from the dated update log above — every closed trade counted, nothing cherry-picked. This tracks a research log, not a real brokerage account; past results don't predict future ones.</p>
+    </div>
+
+    <div class="pstats reveal" id="pstatsGrid"></div>
+
+    <div style="margin-top:64px">
+      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:6px">Current core holdings</h3>
+      <p class="sec-sub" style="margin-bottom:30px">Equal-weight across the four current core names, last confirmed Jul 8, 2026 and unchanged through the most recent update (Jul 24, 2026). Pulled from the tracked research log above — not a live brokerage feed, and not investment advice.</p>
+      <div class="pie-wrap reveal">
+        <div class="pie" id="pieChart"></div>
+        <div class="pie-legend" id="pieLegend"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -441,6 +480,11 @@
 <footer>
   <div class="wrap">
     © <span id="yr"></span> Nathan Jimenez · Independent Equity Research · For informational purposes only — not investment advice.
+    <div class="visit-counter">
+      <a href="https://honest-screens-research.netlify.app" target="_blank" rel="noopener noreferrer" title="Site visits">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=honest-screens-research.netlify.app&left_color=1e2340&right_color=7c5cff&left_text=visits" alt="Visitor count" loading="lazy" onerror="this.closest('.visit-counter').style.display='none'">
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -676,6 +720,65 @@
     document.getElementById('updShowBtn').style.display='none';
   }
   renderUpdates();
+
+  // ---- performance stats (computed live from closed trades, not hardcoded) ----
+  // Source: the "Notable Per-Stock Gains" table in the research log. Add a new
+  // entry here when a trade closes and the win rate / averages recompute automatically.
+  var closedTrades=[
+    {t:'CRWV',g:1.18},{t:'CLYM',g:13.06},{t:'MOV',g:-3.69},{t:'CCSI',g:11.43},
+    {t:'GLBS',g:-5.90},{t:'DLX',g:8.49},{t:'BRC',g:7.47},{t:'DAKT',g:4.70},
+    {t:'NATR',g:-1.01},{t:'BWMX',g:1.78},{t:'IMPP',g:9.98},{t:'MT',g:3.06},
+    {t:'OPRX',g:7.18},{t:'ESCA',g:3.95},{t:'AU',g:0.94},{t:'OPRA',g:8.88},
+    {t:'MHH',g:5.67},{t:'BZ',g:7.07},{t:'MU',g:-1.93,note:'short'},{t:'CRDO',g:14.42}
+  ];
+  function renderPerfStats(){
+    var total=closedTrades.length;
+    var wins=closedTrades.filter(function(c){return c.g>0}).length;
+    var winRate=wins/total*100;
+    var avg=closedTrades.reduce(function(s,c){return s+c.g},0)/total;
+    var best=closedTrades.reduce(function(a,b){return b.g>a.g?b:a});
+    var worst=closedTrades.reduce(function(a,b){return b.g<a.g?b:a});
+    var cards=[
+      {h:winRate.toFixed(0)+'%',p:'Win rate across '+total+' tracked closed trades ('+wins+' up / '+(total-wins)+' down)'},
+      {h:(avg>=0?'+':'')+avg.toFixed(2)+'%',p:'Average gain per closed trade'},
+      {h:'+'+best.g.toFixed(2)+'%',p:'Best closed call — '+best.t},
+      {h:worst.g.toFixed(2)+'%',p:'Worst closed call — '+worst.t},
+      {h:'+45.96%',p:'Total tracked portfolio gain (as of Jul 24, 2026)'},
+      {h:'+28.10%',p:'Beating the S&amp;P 500 by, last reported (as of Jun 1, 2026)'}
+    ];
+    var wrap=document.getElementById('pstatsGrid');wrap.innerHTML='';
+    cards.forEach(function(c){
+      var el=document.createElement('div');el.className='stat';
+      el.innerHTML='<h3 class="grad-text">'+c.h+'</h3><p>'+c.p+'</p>';
+      wrap.appendChild(el);
+    });
+  }
+  renderPerfStats();
+
+  // ---- live portfolio pie chart ----
+  // Equal-weight current core holdings. Update this array when the concentration changes —
+  // the pie slices and legend percentages recompute automatically.
+  var portfolio=[
+    {ticker:'CRM',weight:25,color:'#7c5cff'},
+    {ticker:'ON',weight:25,color:'#22d3ee'},
+    {ticker:'ECHO',weight:25,color:'#b6f34a'},
+    {ticker:'SKM',weight:25,color:'#ffcf5c'}
+  ];
+  function renderPortfolio(){
+    var cum=0;
+    var stops=portfolio.map(function(p){
+      var start=cum*3.6;cum+=p.weight;var end=cum*3.6;
+      return p.color+' '+start+'deg '+end+'deg';
+    }).join(',');
+    document.getElementById('pieChart').style.background='conic-gradient('+stops+')';
+    var legend=document.getElementById('pieLegend');legend.innerHTML='';
+    portfolio.forEach(function(p){
+      var row=document.createElement('div');row.className='row';
+      row.innerHTML='<span class="sw" style="background:'+p.color+'"></span><span>'+p.ticker+'</span><span class="pct">'+p.weight+'%</span>';
+      legend.appendChild(row);
+    });
+  }
+  renderPortfolio();
 
   // reveal on scroll
   var io=new IntersectionObserver(function(es){
