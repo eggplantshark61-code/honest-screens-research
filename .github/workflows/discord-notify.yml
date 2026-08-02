@@ -2,9 +2,9 @@ name: Discord Notifications
 'on':
   push:
     branches:
-    - main
+      - main
     paths:
-    - index.html
+      - index.html
   workflow_dispatch:
     inputs:
       test_mode:
@@ -16,18 +16,92 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 2
-    - name: Detect changed sections and notify Discord
-      env:
-        DISCORD_WEBHOOK_GENERAL: ${{ secrets.DISCORD_WEBHOOK_GENERAL }}
-        DISCORD_WEBHOOK_REPORTS: ${{ secrets.DISCORD_WEBHOOK_REPORTS }}
-        DISCORD_WEBHOOK_BUYS: ${{ secrets.DISCORD_WEBHOOK_BUYS }}
-        DISCORD_WEBHOOK_SELLS: ${{ secrets.DISCORD_WEBHOOK_SELLS }}
-        DISCORD_WEBHOOK_POSITION_CHANGES: ${{ secrets.DISCORD_WEBHOOK_POSITION_CHANGES }}
-        SITE_URL: https://honest-screens-research.netlify.app/
-        COMMIT_MSG: ${{ github.event.head_commit.message }}
-        TEST_MODE: ${{ github.event.inputs.test_mode }}
-      run: "set -e\nif git rev-parse HEAD~1 >/dev/null 2>&1; then\n  DIFF=$(git diff HEAD~1 HEAD -- index.html || true)\nelse\n  DIFF=\"\"\nfi\nADDED=$(echo \"$DIFF\" | grep '^+' | grep -v '^+++' || true)\nPREFIX=\"\"\nPING=\"@everyone\"\nif [ \"$TEST_MODE\" = \"true\" ]; then\n  PREFIX=\"[TEST] \"\n  PING=\"(test run - no ping)\"\nfi\nSUMMARY=\"${COMMIT_MSG:-Site updated}\"\nsend_discord() {\n  WEBHOOK_URL=\"$1\"\n  TITLE=\"$2\"\n  DESCRIPTION=\"$3\"\n  PAGE_LINK=\"$4\"\n  if [ -z \"$WEBHOOK_URL\" ]; then\n    echo \"No webhook configured for: $TITLE (skipping)\"\n    return\n  fi\n  CONTENT=\"${PREFIX}${PING} -- ${TITLE}\"\n  PAYLOAD=$(jq -n --arg content \"$CONTENT\" --arg title \"$TITLE\" --arg desc \"$DESCRIPTION\" --arg url \"$PAGE_LINK\" '{content: $content, embeds: [{title: $title, url: $url, description: $desc, color: 4886754}]}')\n  RESP=$(curl -sS -w \"\\nHTTP_STATUS:%{http_code}\" -X POST -H \"Content-Type: application/json\" -d \"$PAYLOAD\" \"$WEBHOOK_URL\")\n  echo \"Discord response for $TITLE: $RESP\"\n}\nMATCHED=\"false\"\nif echo \"$ADDED\" | grep -q 'var reports=' || echo \"$ADDED\" | grep -q 'var cards=' || echo \"$ADDED\" | grep -q 'sub:'; then\n  MATCHED=\"true\"\n  send_discord \"$DISCORD_WEBHOOK_REPORTS\" \"New research posted\" \"$SUMMARY\" \"${SITE_URL}#research\"\nfi\nif echo \"$ADDED\" | grep -q 'var portfolio=' || echo \"$ADDED\" | grep -q 'ticker:'; then\n  MATCHED=\"true\"\n  send_discord \"$DISCORD_WEBHOOK_POSITION_CHANGES\" \"Current holdings updated\" \"$SUMMARY\" \"$SITE_URL\"\nfi\nif echo \"$ADDED\" | grep -q 'var updates=' || echo \"$ADDED\" | grep -qE \"tag:['\\\"]\"; then\n  MATCHED=\"true\"\n  if echo \"$ADDED\" | grep -qiE 'sold|trimmed|exit|sell'; then\n    send_discord \"$DISCORD_WEBHOOK_SELLS\" \"Position log updated (sell)\" \"$SUMMARY\" \"$SITE_URL\"\n  elif echo \"$ADDED\" | grep -qiE 'added|bought|buy|opened'; then\n    send_discord \"$DISCORD_WEBHOOK_BUYS\" \"Position log updated (buy)\" \"$SUMMARY\" \"$SITE_URL\"\n  else\n    send_discord \"$DISCORD_WEBHOOK_BUYS\" \"Position log updated\" \"$SUMMARY (check site for buy/sell detail)\" \"$SITE_URL\"\n    send_discord \"$DISCORD_WEBHOOK_SELLS\" \"Position log updated\" \"$SUMMARY (check site for buy/sell detail)\" \"$SITE_URL\"\n  fi\nfi\nif echo \"$ADDED\" | grep -qE '<title>|meta name=\\\"description\\\"|id=\\\"about\\\"|id=\\\"faq\\\"|class=\\\"disc\\\"|<footer>'; then\n  MATCHED=\"true\"\n  send_discord \"$DISCORD_WEBHOOK_GENERAL\" \"Website updated\" \"$SUMMARY\" \"$SITE_URL\"\nfi\nif [ \"$MATCHED\" = \"false\" ]; then\n  echo \"No tracked section changed in this push; nothing sent.\"\nfi\n"
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Detect changed sections and notify Discord + Facebook
+        env:
+          DISCORD_WEBHOOK_GENERAL: ${{ secrets.DISCORD_WEBHOOK_GENERAL }}
+          DISCORD_WEBHOOK_REPORTS: ${{ secrets.DISCORD_WEBHOOK_REPORTS }}
+          DISCORD_WEBHOOK_BUYS: ${{ secrets.DISCORD_WEBHOOK_BUYS }}
+          DISCORD_WEBHOOK_SELLS: ${{ secrets.DISCORD_WEBHOOK_SELLS }}
+          DISCORD_WEBHOOK_POSITION_CHANGES: ${{ secrets.DISCORD_WEBHOOK_POSITION_CHANGES }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+          SITE_URL: https://honest-screens-research.netlify.app/
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+          TEST_MODE: ${{ github.event.inputs.test_mode }}
+        run: |
+          set -e
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            DIFF=$(git diff HEAD~1 HEAD -- index.html || true)
+          else
+            DIFF=""
+          fi
+          ADDED=$(echo "$DIFF" | grep '^+' | grep -v '^+++' || true)
+          PREFIX=""
+          PING="@everyone"
+          if [ "$TEST_MODE" = "true" ]; then
+            PREFIX="[TEST] "
+            PING="(test run - no ping)"
+          fi
+          SUMMARY="${COMMIT_MSG:-Site updated}"
+          send_discord() {
+            WEBHOOK_URL="$1"
+            TITLE="$2"
+            DESCRIPTION="$3"
+            PAGE_LINK="$4"
+            if [ -z "$WEBHOOK_URL" ]; then
+              echo "No webhook configured for: $TITLE (skipping)"
+              return
+            fi
+            CONTENT="${PREFIX}${PING} -- ${TITLE}"
+            PAYLOAD=$(jq -n --arg content "$CONTENT" --arg title "$TITLE" --arg desc "$DESCRIPTION" --arg url "$PAGE_LINK" '{content: $content, embeds: [{title: $title, url: $url, description: $desc, color: 4886754}]}')
+            RESP=$(curl -sS -w "\nHTTP_STATUS:%{http_code}" -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "$WEBHOOK_URL")
+            echo "Discord response for $TITLE: $RESP"
+          }
+          send_facebook() {
+            MESSAGE="$1"
+            if [ -z "$FACEBOOK_PAGE_ACCESS_TOKEN" ] || [ -z "$FACEBOOK_PAGE_ID" ]; then
+              echo "Facebook not configured (skipping)"
+              return
+            fi
+            if [ "$TEST_MODE" = "true" ]; then
+              echo "Test mode - skipping live Facebook post: $MESSAGE"
+              return
+            fi
+            RESP=$(curl -sS -w "\nHTTP_STATUS:%{http_code}" -X POST \
+              --data-urlencode "message=$MESSAGE" \
+              --data-urlencode "access_token=$FACEBOOK_PAGE_ACCESS_TOKEN" \
+              "https://graph.facebook.com/v21.0/$FACEBOOK_PAGE_ID/feed")
+            echo "Facebook response: $RESP"
+          }
+          MATCHED="false"
+          if echo "$ADDED" | grep -q 'var reports=' || echo "$ADDED" | grep -q 'var cards=' || echo "$ADDED" | grep -q 'sub:'; then
+            MATCHED="true"
+            send_discord "$DISCORD_WEBHOOK_REPORTS" "New research posted" "$SUMMARY" "${SITE_URL}#research"
+            send_facebook "New research posted on Honest Screens Research: $SUMMARY. Read it here: ${SITE_URL}#research"
+          fi
+          if echo "$ADDED" | grep -q 'var portfolio=' || echo "$ADDED" | grep -q 'ticker:'; then
+            MATCHED="true"
+            send_discord "$DISCORD_WEBHOOK_POSITION_CHANGES" "Current holdings updated" "$SUMMARY" "$SITE_URL"
+          fi
+          if echo "$ADDED" | grep -q 'var updates=' || echo "$ADDED" | grep -qE "tag:['\"]"; then
+            MATCHED="true"
+            if echo "$ADDED" | grep -qiE 'sold|trimmed|exit|sell'; then
+              send_discord "$DISCORD_WEBHOOK_SELLS" "Position log updated (sell)" "$SUMMARY" "$SITE_URL"
+            elif echo "$ADDED" | grep -qiE 'added|bought|buy|opened'; then
+              send_discord "$DISCORD_WEBHOOK_BUYS" "Position log updated (buy)" "$SUMMARY" "$SITE_URL"
+            else
+              send_discord "$DISCORD_WEBHOOK_BUYS" "Position log updated" "$SUMMARY (check site for buy/sell detail)" "$SITE_URL"
+              send_discord "$DISCORD_WEBHOOK_SELLS" "Position log updated" "$SUMMARY (check site for buy/sell detail)" "$SITE_URL"
+            fi
+          fi
+          if echo "$ADDED" | grep -qE '<title>|meta name=\"description\"|id=\"about\"|id=\"faq\"|class=\"disc\"|<footer>'; then
+            MATCHED="true"
+            send_discord "$DISCORD_WEBHOOK_GENERAL" "Website updated" "$SUMMARY" "$SITE_URL"
+          fi
+          if [ "$MATCHED" = "false" ]; then
+            echo "No tracked section changed in this push; nothing sent."
+          fi
