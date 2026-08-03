@@ -591,7 +591,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="last-updated"><span class="lu-dot"></span>Last updated: <b id="lastUpdated">Aug 2, 2026 · 8:24 PM EDT</b></div><div>© <span id="yr"></span> Nathan Jimenez · Independent Equity Research · For informational purposes only — not investment advice.</div>
+    <div class="last-updated"><span class="lu-dot"></span>Last updated: <b id="lastUpdated">Aug 3, 2026 · 7:49 PM EDT</b></div><div>© <span id="yr"></span> Nathan Jimenez · Independent Equity Research · For informational purposes only — not investment advice.</div>
   </div>
 </footer>
 
@@ -604,6 +604,33 @@
   document.getElementById('yr').textContent=new Date().getFullYear();
 
   var reports={
+    crto:{
+      title:"Screen Spotlight — Criteo (CRTO): a Super Stock at ~5x forward earnings",
+      sub:"Stockopedia · Research Screen (US quality-value) · Aug 3, 2026",
+      body:`<p style="color:var(--muted)">This is the strongest fresh name from today's run of the saved <b>Research Screen</b> on Stockopedia — US-listed, Piotroski F-Score > 7, Beneish M-Score < -1.78 (a clean, no-manipulation reading), Value Rank > 80, sorted by StockRank™. Screening past the names already written up here, <b>Criteo (NASDAQ: CRTO)</b> had the best all-round profile on the list: a top StockRank, a near-top Value Rank, clean quality and accounting scores, and a balance sheet that holds net cash. Criteo is a profitable commerce-media / ad-tech business — roughly $1.9bn of gross revenue across about 17,000 clients — that has been repositioning around retail and commerce media.</p>
+<table>
+<tr><th>Metric</th><th>Criteo (CRTO)</th></tr>
+<tr><td>StockRank™</td><td>99 (Super Stock)</td></tr>
+<tr><td>Quality / Value / Momentum Rank</td><td>98 / 98 / 69</td></tr>
+<tr><td>Piotroski F-Score (TTM)</td><td>8 / 9</td></tr>
+<tr><td>Beneish M-Score (TTM)</td><td>-3.36 (Low manipulation risk)</td></tr>
+<tr><td>Price</td><td>~$21.4</td></tr>
+<tr><td>Market Cap</td><td>$1.10bn</td></tr>
+<tr><td>Enterprise Value</td><td>$795m (net cash)</td></tr>
+<tr><td>P/E (TTM / forward)</td><td>8.5x / ~4.9x</td></tr>
+<tr><td>EV / EBITDA</td><td>2.7x</td></tr>
+<tr><td>Price / Sales</td><td>0.57x</td></tr>
+<tr><td>Price / Book</td><td>0.97x</td></tr>
+<tr><td>Price / Free Cash Flow</td><td>6.1x</td></tr>
+<tr><td>Dividend Yield</td><td>0%</td></tr>
+<tr><td>Forecast EPS growth (2026)</td><td>+43.7%</td></tr>
+<tr><td>ROCE / ROE</td><td>12.4% / 10.4%</td></tr>
+<tr><td>Analyst target (3-source avg)</td><td>~$30 · range ~$26–$39 · Buy/Strong Buy</td></tr>
+</table>
+<p style="color:var(--muted)">The screen flags Criteo because it pairs top-decile quality and value (StockRank 99, Value Rank 98) and clean accounting scores (Piotroski 8, Beneish -3.36) with a genuinely cheap price: about 4.9x forward earnings, 2.7x EV/EBITDA, 0.57x sales and roughly 6x free cash flow — and, unusually, an enterprise value <b>below</b> its market cap, because the company carries net cash rather than debt. Consensus estimates have 2026 EPS rising about 44%. Management is returning cash through a $200m buyback while leaning into retail/commerce media, where Criteo was recently ranked a category leader. Cross-checked across StockAnalysis, TipRanks and WallStreetZen, the average analyst price target sits near $30 — roughly 40% above the current ~$21 — though the individual targets are widely dispersed (about $26 to $39), so treat that average as a rough midpoint, not a promise.</p>
+<p style="color:var(--muted)"><b>The risks, up front.</b> Two events dominate the near term. Criteo reports <b>Q2 2026 results on 5 August</b> — two days out, and a binary catalyst either way. And on 7 July 2026, Bloomberg reported that <b>Vista Equity Partners and Quinti Capital submitted a joint takeover approach</b> at a reported premium of more than 50% to the recent share price; Criteo declined to comment and <b>no deal has been agreed</b>, so the ~18% pop to about $22 on that report would likely unwind if the talks lead nowhere. Longer term, the bear case is structural: ad-tech faces privacy and third-party-cookie disruption, Criteo's gross revenue has been broadly flat-to-declining, and it carries client-concentration risk. This is a screen result and a walk through the numbers — <b>not a recommendation, and not a bet on a deal closing.</b></p>
+<p class="mnote">Stockopedia data as of Aug 3, 2026; analyst price targets cross-checked across StockAnalysis, TipRanks and WallStreetZen and averaged. Figures are point-in-time and will move. A screen is a research starting point, not a recommendation — and definitely not personalized advice.</p>`
+    },
     nasb:{
       title:"Trading Below Cash Screen — Spotlight: NASB Financial (NASB)",
       sub:"Stockopedia · Browse → Bargain Stocks · US-listed · Aug 2, 2026",
@@ -751,6 +778,7 @@
 
   // ---- research calendar ----
   var cards={
+    crto:{d:'2026-08-03',tag:'Stockopedia · Research Screen',title:'Screen Spotlight — Criteo (CRTO): a Super Stock at ~5x forward earnings',blurb:'StockRank 99, Piotroski 8, net cash and ~5x forward P/E -- with reported PE takeover interest and Q2 earnings due Aug 5.',tk:['CRTO']},
     nasb:{d:'2026-08-02',tag:'Stockopedia · Browse · Bargain Stocks',title:'Trading Below Cash Screen — Spotlight: NASB Financial',blurb:'A thrift holding company trading below its own cash balance -- negative enterprise value and zero analyst coverage.',tk:['NASB']},
     v:{d:'2026-08-02',tag:'Stockopedia · Value',title:'Value &amp; Quality Screen',blurb:'Cheapest, financially strongest names — high Value Rank &amp; Piotroski, with broker upside.',tk:['DEC','MRE','DLX','ADEN','OTEX','+3']},
     mo:{d:'2026-08-02',tag:'Stockopedia · Momentum',title:'Momentum Leaders Screen',blurb:'Strongest price &amp; earnings momentum among cheap, high-quality names.',tk:['ALTO','DAR','ERO','MRE','MFI','+3']},
@@ -808,6 +836,7 @@
   // Newest first. To add a new entry, unshift a new object onto this array —
   // it renders automatically, no other HTML changes needed.
   var updates=[
+    {date:'2026-08-03',tag:'Research report',title:'New research: Criteo (CRTO) screens as a net-cash Super Stock at ~5x forward earnings',body:'Ran the Research Screen on Stockopedia (US, Piotroski > 7, Beneish < -1.78, Value Rank > 80, sorted by StockRank) and picked Criteo (NASDAQ: CRTO) for a full write-up -- the strongest fresh name on the list. StockRank 99 (Super Stock), Value Rank 98, Piotroski 8, Beneish M-Score -3.36 (clean), net cash (EV $795m vs a $1.10bn market cap), ~4.9x forward P/E, 2.7x EV/EBITDA and 0.57x sales, with 2026 EPS forecast to rise ~44%. Two live wildcards: Bloomberg reported (Jul 7) a Vista Equity / Quinti Capital takeover approach at a >50% premium, and Q2 results are due Aug 5. Full write-up, with the risks, on the Research tab.'},
     {date:'2026-08-02',tag:'Research report',title:'New research: NASB Financial is trading below its own cash balance',body:'Pulled today\'s write-up from Stockopedia\'s Browse section -- the "Trading below Cash Screen" (Bargain Stocks, James Altucher\'s net-cash screen) -- and picked out NASB Financial (PNK: NASB) for a full report. $406m cash vs. a $300.84m market cap gives a negative enterprise value, on top of 0.68x book, a 9.3x P/E, 3.10% dividend yield, and zero analyst coverage. Full write-up on the Research tab.'},
     {date:'2026-08-02',tag:'Site note',title:'Discord update posts no longer link to GitHub',body:'Changed the automated Discord notifications for this site: posts now include only a plain-language summary of what changed plus a link to the live site, not a link to the GitHub commit. Note for anyone wondering: a public GitHub commit link is just a read-only page and can\'t let anyone log in to anything -- but the bot leaves it out from now on regardless, per request.'},
     {date:'2026-08-02',tag:'Screen run',title:'New Research Screen run: fraud-risk-filtered value names, heavy Energy tilt',body:'Ran the Research Screen on Stockopedia today: Country = United States, Piotroski F-Score TTM > 7, Beneish M-Score TTM < -1.78 (screens out likely earnings manipulators), Value Rank > 80, sorted by StockRank\u2122 \u2014 87 results. The list leans heavily Energy: DINO, PBF, IMPP, RSRV, APA and CNX all cleared the bar, consistent with the sector trading cheap on both price and quality-adjusted measures right now. Best names outside Energy: HCSG (Piotroski 9, Value Rank 83) and CSTM (Piotroski 9, Value Rank 88). No changes to the tracked portfolio from this pass \u2014 these are flagged for a full write-up rather than traded off a single screen.'},
