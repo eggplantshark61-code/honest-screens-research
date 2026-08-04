@@ -1,0 +1,66 @@
+name: YouTube Notifications
+
+# Watches the Honest Screens YouTube RSS feed and announces any new upload in
+# the Discord #youtube channel with an @everyone ping, the video's description
+# and its link. Works for every upload path -- publish_video.py or a manual
+# upload in YouTube Studio -- because it watches the channel, not the script.
+#
+# Requires one repository secret: DISCORD_WEBHOOK_YOUTUBE
+#   Discord -> #youtube -> Edit Channel -> Integrations -> Webhooks -> copy URL
+#   GitHub  -> Settings -> Secrets and variables -> Actions -> New secret
+
+on:
+  schedule:
+    # Every 15 minutes, deliberately offset off the hour: the :00 slot is the
+    # most congested on GitHub's scheduler and gets delayed the most.
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Test mode: prefix [TEST], no @everyone ping, state not saved'
+        required: false
+        default: true
+        type: boolean
+      reseed:
+        description: 'Reseed state from the feed WITHOUT posting anything'
+        required: false
+        default: false
+        type: boolean
+
+# Needed so the job can commit the "already announced" state file back to main.
+permissions:
+  contents: write
+
+# Never let two checks overlap into a double-post or a push conflict.
+concurrency:
+  group: youtube-notify
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check the feed and announce new videos
+        env:
+          DISCORD_WEBHOOK_YOUTUBE: ${{ secrets.DISCORD_WEBHOOK_YOUTUBE }}
+          CHANNEL_ID: UCClLAeIpzrt0eZrw2onGUfw
+          CHANNEL_URL: https://www.youtube.com/@honestscreens
+          TEST_MODE: ${{ github.event.inputs.test_mode }}
+          RESEED: ${{ github.event.inputs.reseed }}
+        run: python3 .github/scripts/youtube_notify.py
+
+      - name: Record which videos have been announced
+        run: |
+          if [ -z "$(git status --porcelain .github/state)" ]; then
+            echo "No state change to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/state
+          # [skip ci] keeps this bookkeeping commit from triggering a pointless
+          # Netlify rebuild -- it never touches index.html.
+          git commit -m "chore: record announced YouTube videos [skip ci]"
+          git push || (git pull --rebase && git push)
