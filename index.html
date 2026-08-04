@@ -277,6 +277,7 @@
       <a href="#learn">Learn</a>
       <a href="#community">Community</a>
       <a href="#contact">Contact</a>
+      <a href="#signup">Sign Up</a>
     </div>
     <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('show')">☰</button>
   </div>
@@ -588,6 +589,58 @@
     </div>
   </div>
 </section>
+
+<!-- SIGN UP -->
+<section id="signup">
+  <div class="wrap">
+    <div class="kicker">Sign Up</div>
+    <h2>Request access</h2>
+    <p class="sec-sub">Want in? Leave your email and a note on what you're after — the weekly screens, a specific report, the Discord, or something else — and I'll follow up personally.</p>
+    <form name="signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="signupForm" class="su-form">
+      <input type="hidden" name="form-name" value="signup">
+      <p class="su-hp"><label>Leave this empty if you're human: <input name="bot-field"></label></p>
+      <div class="su-field">
+        <label for="su-email">Email</label>
+        <input id="su-email" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="su-field">
+        <label for="su-need">What do you need?</label>
+        <textarea id="su-need" name="request" required rows="4" placeholder="e.g. I'd like access to the weekly screens and the research reports."></textarea>
+      </div>
+      <button type="submit" class="btn btn-p">Send request</button>
+      <p class="su-status" id="suStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+<style>
+  #signup .su-form{max-width:560px}
+  #signup .su-field{margin-bottom:18px;display:flex;flex-direction:column;gap:8px}
+  #signup label{font-weight:600;font-size:.9rem}
+  #signup input,#signup textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:inherit;font:inherit;box-sizing:border-box}
+  #signup input:focus,#signup textarea:focus{outline:none;border-color:var(--cyan)}
+  #signup textarea{resize:vertical;min-height:110px}
+  #signup .su-hp{position:absolute;left:-5000px}
+  #signup .su-status{margin-top:14px;font-weight:600;min-height:1.2em}
+</style>
+<script>
+  (function(){
+    var f=document.getElementById('signupForm');
+    if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var s=document.getElementById('suStatus');
+      var btn=f.querySelector('button[type=submit]');
+      s.style.color='var(--muted)'; s.textContent='Sending...'; btn.disabled=true;
+      var body=new URLSearchParams(new FormData(f)).toString();
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+        .then(function(r){
+          if(r.ok){ f.reset(); s.style.color='var(--cyan)'; s.textContent='Thanks! Your request was sent. I\'ll be in touch by email.'; }
+          else { s.style.color='#ff6b6b'; s.textContent='Something went wrong. Please try again or email me directly.'; btn.disabled=false; }
+        })
+        .catch(function(){ s.style.color='#ff6b6b'; s.textContent='Something went wrong. Please try again or email me directly.'; btn.disabled=false; });
+    });
+  })();
+</script>
 
 <footer>
   <div class="wrap">
