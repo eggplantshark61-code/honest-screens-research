@@ -199,11 +199,15 @@ def main():
     if not CHANNEL_ID:
         sys.exit("CHANNEL_ID is not set in the workflow environment.")
     if not WEBHOOK:
-        sys.exit(
-            "DISCORD_WEBHOOK_YOUTUBE is not set. Create a webhook on the #youtube channel "
-            "(Edit Channel -> Integrations -> Webhooks), save the URL as that repository "
-            "secret under Settings -> Secrets and variables -> Actions, then re-run."
+        # Not configured yet. Warn loudly, but do not fail: this runs every 15
+        # minutes, and a hard failure would bury the owner's inbox in alerts.
+        print(
+            "::warning::DISCORD_WEBHOOK_YOUTUBE is not set, so no announcements can be sent. "
+            "Create a webhook on the #youtube channel (Edit Channel -> Integrations -> "
+            "Webhooks), then save its URL as that repository secret under "
+            "Settings -> Secrets and variables -> Actions."
         )
+        return
 
     entries = parse_entries(fetch_feed())
     if not entries:
