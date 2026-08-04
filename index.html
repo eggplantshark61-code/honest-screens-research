@@ -600,6 +600,13 @@
       <input type="hidden" name="form-name" value="signup">
       <p class="su-hp"><label>Leave this empty if you're human: <input name="bot-field"></label></p>
       <div class="su-field">
+        <label>Subscription plan</label>
+        <div class="su-plans">
+          <label class="su-plan"><input type="radio" name="plan" value="6 months — $140 USD"> <span><b>6 months</b> — $140 USD</span></label>
+          <label class="su-plan"><input type="radio" name="plan" value="1 year — $250 USD"> <span><b>1 year</b> — $250 USD</span></label>
+        </div>
+      </div>
+      <div class="su-field">
         <label for="su-email">Email</label>
         <input id="su-email" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
       </div>
@@ -621,6 +628,10 @@
   #signup textarea{resize:vertical;min-height:110px}
   #signup .su-hp{position:absolute;left:-5000px}
   #signup .su-status{margin-top:14px;font-weight:600;min-height:1.2em}
+  #signup .su-plans{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  #signup .su-plan{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(255,255,255,.14);border-radius:10px;cursor:pointer;font-weight:500}
+  #signup .su-plan input{width:auto;margin:0}
+  #signup .su-plan:hover{border-color:var(--cyan)}
 </style>
 <script>
   (function(){
