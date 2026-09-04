@@ -655,7 +655,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="last-updated"><span class="lu-dot"></span>Last updated: <b id="lastUpdated">Sep 4, 2026 · 1:48 PM ET</b></div><div>© <span id="yr"></span> Nathan Jimenez · Independent Equity Research · For informational purposes only — not investment advice.</div>
+    <div class="last-updated"><span class="lu-dot"></span>Last updated: <b id="lastUpdated">Sep 4, 2026 · 1:57 PM ET</b></div><div>© <span id="yr"></span> Nathan Jimenez · Independent Equity Research · For informational purposes only — not investment advice.</div>
   </div>
 </footer>
 
@@ -805,10 +805,11 @@
 };
   var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  var TODAY='2026-08-02';
+  var _now=new Date();
+  var TODAY=_now.getFullYear()+'-'+(_now.getMonth()+1<10?'0':'')+(_now.getMonth()+1)+'-'+(_now.getDate()<10?'0':'')+_now.getDate();
   var byDate={};
   Object.keys(cards).forEach(function(id){var d=cards[id].d;(byDate[d]=byDate[d]||[]).push(id);});
-  var calY=2026,calM=7;
+  var calY=_now.getFullYear(),calM=_now.getMonth();
   function pad(n){return (n<10?'0':'')+n;}
   function fmtDate(ds){var p=ds.split('-');return MONTHS[+p[1]-1]+' '+(+p[2])+', '+p[0];}
   function renderCalendar(){
